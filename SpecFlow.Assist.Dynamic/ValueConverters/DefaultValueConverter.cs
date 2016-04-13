@@ -3,7 +3,7 @@
 namespace SpecFlow.Assist.Dynamic
 {
     /// <summary>
-    /// Default dynamic value converter which tries to convert the value
+    /// Default table value converter which tries to convert the value
     /// to base types (int, double, decimal, bool, DateTime respecively)
     /// and returns the value as string if the conversion fails.
     /// </summary>

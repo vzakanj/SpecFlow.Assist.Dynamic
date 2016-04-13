@@ -58,6 +58,7 @@
     <Compile Include="ValueConverters\ITableValueConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValueConverters\DefaultValueConverter.cs" />
+    <Compile Include="ValueConverters\ValueToDecimalConverter.cs" />
     <Compile Include="ValueConverters\ValueToStringConverter.cs" />
   </ItemGroup>
   <ItemGroup>
