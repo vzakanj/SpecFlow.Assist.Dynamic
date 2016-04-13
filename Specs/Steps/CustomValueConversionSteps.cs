@@ -15,7 +15,7 @@ namespace Specs.Steps
     {
         private Dictionary<string, Type> typeCache = new Dictionary<string, Type>();
 
-        [When(@"I create a dynamic instance with custom (.*) converter from this table")]
+        [When(@"I create a dynamic instance with only (.*) converter from this table")]
         public void WhenICreateADynamicInstanceWithCustomConverterFromThisTable(string converterName, Table table)
         {
             var converter = GetDynamicValueConverterByName(converterName);
