@@ -265,6 +265,18 @@ namespace TechTalk.SpecFlow.Assist
 
         private static object CreateTypedValue(string valueFromTable, ITableValueConverter[] valueConverters = null)
         {
+            if (valueConverters != null)
+            {
+                foreach (var converter in valueConverters)
+                {
+                    var value = converter.Convert(valueFromTable);
+                    if (value != null)
+                    {
+                        return value;
+                    }
+                }
+            }
+
             return defaultConverter.Value.Convert(valueFromTable);
         }
 

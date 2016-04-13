@@ -73,6 +73,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CreateDynamicSetsAndInstancesWithStepArgumentTransformation.feature</DependentUpon>
     </Compile>
+    <Compile Include="CustomValueConversions.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CustomValueConversions.feature</DependentUpon>
+    </Compile>
     <Compile Include="DynamicInstancesFromTable.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -89,6 +94,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ReservedCharsInCSharp.feature</DependentUpon>
     </Compile>
+    <Compile Include="Steps\CustomValueConversionSteps.cs" />
     <Compile Include="Steps\StepArgumentTransformationSteps.cs" />
     <Compile Include="Steps\DynamicSetComparisonSteps.cs" />
     <Compile Include="Steps\DynamicInstanceComparisionSteps.cs" />
@@ -119,6 +125,10 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>CreateDynamicSetsAndInstancesWithStepArgumentTransformation.feature.cs</LastGenOutput>
     </None>
+    <None Include="CustomValueConversions.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CustomValueConversions.feature.cs</LastGenOutput>
+    </None>
     <None Include="DynamicInstancesFromTable.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>DynamicInstancesFromTable.feature.cs</LastGenOutput>
@@ -146,6 +156,7 @@
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
