@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Dynamic;
 using System.Linq;
-using System.Runtime.Remoting.Messaging;
 using System.Text.RegularExpressions;
 using ImpromptuInterface;
+using SpecFlow.Assist.Dynamic;
 
 namespace TechTalk.SpecFlow.Assist
 {
@@ -23,6 +22,8 @@ namespace TechTalk.SpecFlow.Assist
 
         private const string ERRORMESS_SET_VALUES_DIFFERS =
             "A difference was found on row '{0}' for column '{1}' (property '{2}').\n\tInstance:\t'{3}'.\n\tTable:\t\t'{4}'";
+
+        private static Lazy<ITableValueConverter> defaultConverter = new Lazy<ITableValueConverter>(() => new DefaultValueConverter(), isThreadSafe: true);
 
         /// <summary>
         /// Create a dynamic object from the headers and values of the <paramref name="table"/>
@@ -46,13 +47,48 @@ namespace TechTalk.SpecFlow.Assist
         }
 
         /// <summary>
+        /// Create a dynamic object from the headers and values of the <paramref name="table"/>,
+        /// using the <param name="valueConverters"/> to convert table values into desired
+        /// types of the created instance.
+        /// </summary>
+        /// <param name="table">the table to create a dynamic object from</param>
+        /// <returns>the created object</returns>
+        public static ExpandoObject CreateDynamicInstance(this Table table, params ITableValueConverter[] valueConverters)
+        {
+            if (table.Header.Count == 2 && table.RowCount > 1)
+            {
+                var horizontalTable = CreateHorizontalTable(table);
+                return CreateDynamicInstance(horizontalTable.Rows[0], valueConverters);
+            }
+
+            if (table.RowCount == 1)
+            {
+                return CreateDynamicInstance(table.Rows[0], valueConverters);
+            }
+
+            throw new DynamicInstanceFromTableException(ERRORMESS_INSTANCETABLE_FORMAT);
+        }
+
+        /// <summary>
         /// Creates a set of dynamic objects based of the <paramref name="table"/> headers and values
         /// </summary>
         /// <param name="table">the table to create a set of dynamics from</param>
         /// <returns>a set of dynamics</returns>
         public static IEnumerable<dynamic> CreateDynamicSet(this Table table)
         {
-            return table.Rows.Select(CreateDynamicInstance);
+            return table.Rows.Select(tableRow => CreateDynamicInstance(tableRow));
+        }
+
+        /// <summary>
+        /// Creates a set of dynamic objects based of the <paramref name="table"/> headers and values,
+        /// using the <paramref name="valueConverters"/> to convert table values into desired property types of
+        /// objects in the created set.
+        /// </summary>
+        /// <param name="table">the table to create a set of dynamics from</param>
+        /// <returns>a set of dynamics</returns>
+        public static IEnumerable<dynamic> CreateDynamicSet(this Table table, params ITableValueConverter[] valueConverters)
+        {
+            return table.Rows.Select(tableRow => CreateDynamicInstance(tableRow, valueConverters));
         }
 
         /// <summary>
@@ -212,7 +248,7 @@ namespace TechTalk.SpecFlow.Assist
             return horizontalTable;
         }
 
-        private static ExpandoObject CreateDynamicInstance(TableRow tablerow)
+        private static ExpandoObject CreateDynamicInstance(TableRow tablerow, ITableValueConverter[] valueConverters = null)
         {
             dynamic expando = new ExpandoObject();
             var dicExpando = expando as IDictionary<string, object>;
@@ -220,40 +256,16 @@ namespace TechTalk.SpecFlow.Assist
             foreach (var header in tablerow.Keys)
             {
                 var propName = CreatePropertyName(header);
-                var propValue = CreateTypedValue(tablerow[header]);
+                var propValue = CreateTypedValue(tablerow[header], valueConverters);
                 dicExpando.Add(propName, propValue);
             }
 
             return expando;
         }
 
-        private static object CreateTypedValue(string valueFromTable)
+        private static object CreateTypedValue(string valueFromTable, ITableValueConverter[] valueConverters = null)
         {
-            // TODO: More types here?
-            int i;
-            if (int.TryParse(valueFromTable, out i))
-                return i;
-
-            double db;
-            if (Double.TryParse(valueFromTable, out db))
-            {
-                decimal d;
-                if (Decimal.TryParse(valueFromTable, out d) && d.Equals((decimal)db))
-                {
-                    return db;
-                }
-                return d;
-            }
-
-            bool b;
-            if (Boolean.TryParse(valueFromTable, out b))
-                return b;
-
-            DateTime dt;
-            if (DateTime.TryParse(valueFromTable, out dt))
-                return dt;
-
-            return valueFromTable;
+            return defaultConverter.Value.Convert(valueFromTable);
         }
 
         private static string CreatePropertyName(string header)
