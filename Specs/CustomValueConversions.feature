@@ -86,3 +86,45 @@ Scenario: A strange double should be translated to decimal when only ValueToDeci
 		| Length in meters |
 		| 4.567            |
 	Then the LengthInMeters property should be of type Decimal and equal 4.567
+
+Scenario: Strings should be translated to strings when ValueToDecimal and ValueToString converters are used
+	When I create a dynamic instance with converters ValueToDecimal, ValueToString from this table
+		| Name   |
+		| Marcus |
+	Then the Name property should be of type String and equal Marcus
+
+Scenario: Integers should be translated to decimals when ValueToDecimal and ValueToString converters are used
+	When I create a dynamic instance with converters ValueToDecimal, ValueToString from this table
+		| Age |
+		| 39  |
+	Then the Age property should be of type Decimal and equal 39.00
+
+Scenario: Doubles should be translated to decimals when ValueToDecimal and ValueToString converters are used
+	When I create a dynamic instance with converters ValueToDecimal, ValueToString from this table
+		| Length in meters |
+		| 1.96             |
+	Then the LengthInMeters property should be of type Decimal and equal 1.96
+
+Scenario: Decimals should be translated to decimals when ValueToDecimal and ValueToString converters are used
+	When I create a dynamic instance with converters ValueToDecimal, ValueToString from this table
+		| Molecular Weight      |
+		| 1000000000.1111991111 |
+	Then the MolecularWeight property should be of type Decimal and equal 1000000000.1111991111
+
+Scenario: Dates should be translated to strings when ValueToDecimal and ValueToString converters are used
+	When I create a dynamic instance with converters ValueToDecimal, ValueToString from this table
+		| Birth date |
+		| 1972-10-09 |
+	Then the BirthDate property should be of type String and equal 1972-10-09
+
+Scenario: Bools should be translated to strings when ValueToDecimal and ValueToString converters are used
+	When I create a dynamic instance with converters ValueToDecimal, ValueToString from this table
+		| Is developer |
+		| false        |
+	Then the IsDeveloper property should be of type String and equal false
+
+Scenario: A strange double should be translated to decimal when ValueToDecimal and ValueToString converters are used
+	When I create a dynamic instance with converters ValueToDecimal, ValueToString from this table
+		| Length in meters |
+		| 4.567            |
+	Then the LengthInMeters property should be of type Decimal and equal 4.567

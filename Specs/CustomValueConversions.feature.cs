@@ -370,6 +370,168 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Strings should be translated to strings when ValueToDecimal and ValueToString con" +
+            "verters are used")]
+        public virtual void StringsShouldBeTranslatedToStringsWhenValueToDecimalAndValueToStringConvertersAreUsed()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Strings should be translated to strings when ValueToDecimal and ValueToString con" +
+                    "verters are used", ((string[])(null)));
+#line 90
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table15 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name"});
+            table15.AddRow(new string[] {
+                        "Marcus"});
+#line 91
+ testRunner.When("I create a dynamic instance with converters ValueToDecimal, ValueToString from th" +
+                    "is table", ((string)(null)), table15, "When ");
+#line 94
+ testRunner.Then("the Name property should be of type String and equal Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Integers should be translated to decimals when ValueToDecimal and ValueToString c" +
+            "onverters are used")]
+        public virtual void IntegersShouldBeTranslatedToDecimalsWhenValueToDecimalAndValueToStringConvertersAreUsed()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Integers should be translated to decimals when ValueToDecimal and ValueToString c" +
+                    "onverters are used", ((string[])(null)));
+#line 96
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table16 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Age"});
+            table16.AddRow(new string[] {
+                        "39"});
+#line 97
+ testRunner.When("I create a dynamic instance with converters ValueToDecimal, ValueToString from th" +
+                    "is table", ((string)(null)), table16, "When ");
+#line 100
+ testRunner.Then("the Age property should be of type Decimal and equal 39.00", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Doubles should be translated to decimals when ValueToDecimal and ValueToString co" +
+            "nverters are used")]
+        public virtual void DoublesShouldBeTranslatedToDecimalsWhenValueToDecimalAndValueToStringConvertersAreUsed()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Doubles should be translated to decimals when ValueToDecimal and ValueToString co" +
+                    "nverters are used", ((string[])(null)));
+#line 102
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table17 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Length in meters"});
+            table17.AddRow(new string[] {
+                        "1.96"});
+#line 103
+ testRunner.When("I create a dynamic instance with converters ValueToDecimal, ValueToString from th" +
+                    "is table", ((string)(null)), table17, "When ");
+#line 106
+ testRunner.Then("the LengthInMeters property should be of type Decimal and equal 1.96", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Decimals should be translated to decimals when ValueToDecimal and ValueToString c" +
+            "onverters are used")]
+        public virtual void DecimalsShouldBeTranslatedToDecimalsWhenValueToDecimalAndValueToStringConvertersAreUsed()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Decimals should be translated to decimals when ValueToDecimal and ValueToString c" +
+                    "onverters are used", ((string[])(null)));
+#line 108
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table18 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Molecular Weight"});
+            table18.AddRow(new string[] {
+                        "1000000000.1111991111"});
+#line 109
+ testRunner.When("I create a dynamic instance with converters ValueToDecimal, ValueToString from th" +
+                    "is table", ((string)(null)), table18, "When ");
+#line 112
+ testRunner.Then("the MolecularWeight property should be of type Decimal and equal 1000000000.11119" +
+                    "91111", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Dates should be translated to strings when ValueToDecimal and ValueToString conve" +
+            "rters are used")]
+        public virtual void DatesShouldBeTranslatedToStringsWhenValueToDecimalAndValueToStringConvertersAreUsed()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Dates should be translated to strings when ValueToDecimal and ValueToString conve" +
+                    "rters are used", ((string[])(null)));
+#line 114
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table19 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Birth date"});
+            table19.AddRow(new string[] {
+                        "1972-10-09"});
+#line 115
+ testRunner.When("I create a dynamic instance with converters ValueToDecimal, ValueToString from th" +
+                    "is table", ((string)(null)), table19, "When ");
+#line 118
+ testRunner.Then("the BirthDate property should be of type String and equal 1972-10-09", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Bools should be translated to strings when ValueToDecimal and ValueToString conve" +
+            "rters are used")]
+        public virtual void BoolsShouldBeTranslatedToStringsWhenValueToDecimalAndValueToStringConvertersAreUsed()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Bools should be translated to strings when ValueToDecimal and ValueToString conve" +
+                    "rters are used", ((string[])(null)));
+#line 120
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table20 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Is developer"});
+            table20.AddRow(new string[] {
+                        "false"});
+#line 121
+ testRunner.When("I create a dynamic instance with converters ValueToDecimal, ValueToString from th" +
+                    "is table", ((string)(null)), table20, "When ");
+#line 124
+ testRunner.Then("the IsDeveloper property should be of type String and equal false", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("A strange double should be translated to decimal when ValueToDecimal and ValueToS" +
+            "tring converters are used")]
+        public virtual void AStrangeDoubleShouldBeTranslatedToDecimalWhenValueToDecimalAndValueToStringConvertersAreUsed()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("A strange double should be translated to decimal when ValueToDecimal and ValueToS" +
+                    "tring converters are used", ((string[])(null)));
+#line 126
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table21 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Length in meters"});
+            table21.AddRow(new string[] {
+                        "4.567"});
+#line 127
+ testRunner.When("I create a dynamic instance with converters ValueToDecimal, ValueToString from th" +
+                    "is table", ((string)(null)), table21, "When ");
+#line 130
+ testRunner.Then("the LengthInMeters property should be of type Decimal and equal 4.567", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

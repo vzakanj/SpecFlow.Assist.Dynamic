@@ -18,7 +18,7 @@ namespace Specs.Steps
         [When(@"I create a dynamic instance with only (.*) converter from this table")]
         public void WhenICreateADynamicInstanceWithCustomConverterFromThisTable(string converterName, Table table)
         {
-            var converter = GetDynamicValueConverterByName(converterName);
+            var converter = GetTableValueConverterByName(converterName);
             State.OriginalInstance = table.CreateDynamicInstance(converter);
         }
 
@@ -32,7 +32,25 @@ namespace Specs.Steps
             Convert.ChangeType(propertyValue, propertyType).Should().Equal(instanceDict[propertyName]);
         }
 
-        private ITableValueConverter GetDynamicValueConverterByName(string converterName)
+        [When(@"I create a dynamic instance with converters (.*) from this table")]
+        public void WhenICreateADynamicInstanceWithConvertersValueToDecimalValueToStringFromThisTable(string converterNames, Table table)
+        {
+            var converterNameArr = converterNames
+                .Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(n => n.Trim())
+                .ToArray();
+
+            var converters = new List<ITableValueConverter>();
+            foreach (var name in converterNameArr)
+            {
+                converters.Add(GetTableValueConverterByName(name));
+            }
+
+            State.OriginalInstance = table.CreateDynamicInstance(converters.ToArray());
+        }
+
+
+        private ITableValueConverter GetTableValueConverterByName(string converterName)
         {
             var converterTypeName = converterName + "Converter";
             var dynamicValueConverterType = GetTypeByName(converterTypeName);
