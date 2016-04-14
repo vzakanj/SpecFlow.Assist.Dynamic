@@ -55,11 +55,13 @@
     <Compile Include="DynamicSetComparisonException.cs" />
     <Compile Include="DynamicStepArgumentTransformations.cs" />
     <Compile Include="DynamicTableHelpers.cs" />
-    <Compile Include="ValueConverters\ITableValueConverter.cs" />
+    <Compile Include="TableValueConverters\ITableValueConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ValueConverters\DefaultValueConverter.cs" />
-    <Compile Include="ValueConverters\ValueToDecimalConverter.cs" />
-    <Compile Include="ValueConverters\ValueToStringConverter.cs" />
+    <Compile Include="TableValueConverters\DefaultValueConverter.cs" />
+    <Compile Include="TableValueConverters\ValueToDecimalConverter.cs" />
+    <Compile Include="TableValueConverters\ValueToDoubleConverter.cs" />
+    <Compile Include="TableValueConverters\ValueToIntConverter.cs" />
+    <Compile Include="TableValueConverters\ValueToStringConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
