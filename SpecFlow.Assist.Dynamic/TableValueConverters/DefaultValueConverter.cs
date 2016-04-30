@@ -4,7 +4,7 @@ namespace SpecFlow.Assist.Dynamic
 {
     /// <summary>
     /// Default table value converter which tries to convert the value
-    /// to base types (int, double, decimal, bool, DateTime respecively)
+    /// to base types (<see cref="int"/>, <see cref="double"/>, <see cref="decimal"/>, <see cref="bool"/>, <see cref="DateTime"/> respecively)
     /// and returns the value as string if the conversion fails.
     /// </summary>
     public class DefaultValueConverter : ITableValueConverter

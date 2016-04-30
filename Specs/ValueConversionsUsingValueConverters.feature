@@ -87,44 +87,51 @@ Scenario: A strange double should be translated to decimal when only ValueToDeci
 		| 4.567            |
 	Then the LengthInMeters property should be of type decimal and equal 4.567
 
-Scenario: Strings should be translated to strings when ValueToDecimal and ValueToString converters are used
+Scenario: Strings should be translated to strings when using ValueToDecimal and ValueToString converters
 	When I create a dynamic instance with converters ValueToDecimal, ValueToString from this table
 		| Name   |
 		| Marcus |
 	Then the Name property should be of type string and equal Marcus
 
-Scenario: Integers should be translated to decimals when ValueToDecimal and ValueToString converters are used
+Scenario: Integers should be translated to decimals when using ValueToDecimal and ValueToString converters
 	When I create a dynamic instance with converters ValueToDecimal, ValueToString from this table
 		| Age |
 		| 39  |
 	Then the Age property should be of type decimal and equal 39.00
 
-Scenario: Doubles should be translated to decimals when ValueToDecimal and ValueToString converters are used
+Scenario: Doubles should be translated to decimals when using ValueToDecimal and ValueToString converters
 	When I create a dynamic instance with converters ValueToDecimal, ValueToString from this table
 		| Length in meters |
 		| 1.96             |
 	Then the LengthInMeters property should be of type decimal and equal 1.96
 
-Scenario: Decimals should be translated to decimals when ValueToDecimal and ValueToString converters are used
+Scenario: Decimals should be translated to decimals when using ValueToDecimal and ValueToString converters
 	When I create a dynamic instance with converters ValueToDecimal, ValueToString from this table
 		| Molecular Weight      |
 		| 1000000000.1111991111 |
 	Then the MolecularWeight property should be of type decimal and equal 1000000000.1111991111
 
-Scenario: Dates should be translated to strings when ValueToDecimal and ValueToString converters are used
+Scenario: Dates should be translated to strings when using ValueToDecimal and ValueToString converters
 	When I create a dynamic instance with converters ValueToDecimal, ValueToString from this table
 		| Birth date |
 		| 1972-10-09 |
 	Then the BirthDate property should be of type string and equal 1972-10-09
 
-Scenario: Bools should be translated to strings when ValueToDecimal and ValueToString converters are used
+Scenario: Bools should be translated to strings when using ValueToDecimal and ValueToString converters
 	When I create a dynamic instance with converters ValueToDecimal, ValueToString from this table
 		| Is developer |
 		| false        |
 	Then the IsDeveloper property should be of type string and equal false
 
-Scenario: A strange double should be translated to decimal when ValueToDecimal and ValueToString converters are used
+Scenario: A strange double should be translated to decimal when using ValueToDecimal and ValueToString converters
 	When I create a dynamic instance with converters ValueToDecimal, ValueToString from this table
 		| Length in meters |
 		| 4.567            |
 	Then the LengthInMeters property should be of type decimal and equal 4.567
+
+Scenario: Dates should be translated to DateTime when only ValueToDateTime converter is used with custom date format
+	When I create a dynamic instance with only ValueToDateTime converter using date format dd/MM/yyyy from this table
+		| Birth date |
+		| 09/10/1972 |
+	Then the BirthDate property should be of type DateTime and equal 1972-10-09
+

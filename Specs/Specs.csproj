@@ -73,6 +73,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CreateDynamicSetsAndInstancesWithStepArgumentTransformation.feature</DependentUpon>
     </Compile>
+    <Compile Include="DynamicInstancesFromTableUsingValueConverters.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DynamicInstancesFromTableUsingValueConverters.feature</DependentUpon>
+    </Compile>
     <Compile Include="Util\ReflectionUtil.cs" />
     <Compile Include="ValueConversionsUsingDelegates.feature.cs">
       <AutoGen>True</AutoGen>
@@ -129,6 +134,10 @@
     <None Include="CreateDynamicSetsAndInstancesWithStepArgumentTransformation.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>CreateDynamicSetsAndInstancesWithStepArgumentTransformation.feature.cs</LastGenOutput>
+    </None>
+    <None Include="DynamicInstancesFromTableUsingValueConverters.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>DynamicInstancesFromTableUsingValueConverters.feature.cs</LastGenOutput>
     </None>
     <None Include="ValueConversionsUsingValueConverters.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

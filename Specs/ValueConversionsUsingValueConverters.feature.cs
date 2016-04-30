@@ -373,12 +373,12 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Strings should be translated to strings when ValueToDecimal and ValueToString con" +
-            "verters are used")]
-        public virtual void StringsShouldBeTranslatedToStringsWhenValueToDecimalAndValueToStringConvertersAreUsed()
+        [NUnit.Framework.DescriptionAttribute("Strings should be translated to strings when using ValueToDecimal and ValueToStri" +
+            "ng converters")]
+        public virtual void StringsShouldBeTranslatedToStringsWhenUsingValueToDecimalAndValueToStringConverters()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Strings should be translated to strings when ValueToDecimal and ValueToString con" +
-                    "verters are used", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Strings should be translated to strings when using ValueToDecimal and ValueToStri" +
+                    "ng converters", ((string[])(null)));
 #line 90
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -396,12 +396,12 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Integers should be translated to decimals when ValueToDecimal and ValueToString c" +
-            "onverters are used")]
-        public virtual void IntegersShouldBeTranslatedToDecimalsWhenValueToDecimalAndValueToStringConvertersAreUsed()
+        [NUnit.Framework.DescriptionAttribute("Integers should be translated to decimals when using ValueToDecimal and ValueToSt" +
+            "ring converters")]
+        public virtual void IntegersShouldBeTranslatedToDecimalsWhenUsingValueToDecimalAndValueToStringConverters()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Integers should be translated to decimals when ValueToDecimal and ValueToString c" +
-                    "onverters are used", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Integers should be translated to decimals when using ValueToDecimal and ValueToSt" +
+                    "ring converters", ((string[])(null)));
 #line 96
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -419,12 +419,12 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Doubles should be translated to decimals when ValueToDecimal and ValueToString co" +
-            "nverters are used")]
-        public virtual void DoublesShouldBeTranslatedToDecimalsWhenValueToDecimalAndValueToStringConvertersAreUsed()
+        [NUnit.Framework.DescriptionAttribute("Doubles should be translated to decimals when using ValueToDecimal and ValueToStr" +
+            "ing converters")]
+        public virtual void DoublesShouldBeTranslatedToDecimalsWhenUsingValueToDecimalAndValueToStringConverters()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Doubles should be translated to decimals when ValueToDecimal and ValueToString co" +
-                    "nverters are used", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Doubles should be translated to decimals when using ValueToDecimal and ValueToStr" +
+                    "ing converters", ((string[])(null)));
 #line 102
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -442,12 +442,12 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Decimals should be translated to decimals when ValueToDecimal and ValueToString c" +
-            "onverters are used")]
-        public virtual void DecimalsShouldBeTranslatedToDecimalsWhenValueToDecimalAndValueToStringConvertersAreUsed()
+        [NUnit.Framework.DescriptionAttribute("Decimals should be translated to decimals when using ValueToDecimal and ValueToSt" +
+            "ring converters")]
+        public virtual void DecimalsShouldBeTranslatedToDecimalsWhenUsingValueToDecimalAndValueToStringConverters()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Decimals should be translated to decimals when ValueToDecimal and ValueToString c" +
-                    "onverters are used", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Decimals should be translated to decimals when using ValueToDecimal and ValueToSt" +
+                    "ring converters", ((string[])(null)));
 #line 108
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -466,12 +466,12 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Dates should be translated to strings when ValueToDecimal and ValueToString conve" +
-            "rters are used")]
-        public virtual void DatesShouldBeTranslatedToStringsWhenValueToDecimalAndValueToStringConvertersAreUsed()
+        [NUnit.Framework.DescriptionAttribute("Dates should be translated to strings when using ValueToDecimal and ValueToString" +
+            " converters")]
+        public virtual void DatesShouldBeTranslatedToStringsWhenUsingValueToDecimalAndValueToStringConverters()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Dates should be translated to strings when ValueToDecimal and ValueToString conve" +
-                    "rters are used", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Dates should be translated to strings when using ValueToDecimal and ValueToString" +
+                    " converters", ((string[])(null)));
 #line 114
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -489,12 +489,12 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Bools should be translated to strings when ValueToDecimal and ValueToString conve" +
-            "rters are used")]
-        public virtual void BoolsShouldBeTranslatedToStringsWhenValueToDecimalAndValueToStringConvertersAreUsed()
+        [NUnit.Framework.DescriptionAttribute("Bools should be translated to strings when using ValueToDecimal and ValueToString" +
+            " converters")]
+        public virtual void BoolsShouldBeTranslatedToStringsWhenUsingValueToDecimalAndValueToStringConverters()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Bools should be translated to strings when ValueToDecimal and ValueToString conve" +
-                    "rters are used", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Bools should be translated to strings when using ValueToDecimal and ValueToString" +
+                    " converters", ((string[])(null)));
 #line 120
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -512,12 +512,12 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("A strange double should be translated to decimal when ValueToDecimal and ValueToS" +
-            "tring converters are used")]
-        public virtual void AStrangeDoubleShouldBeTranslatedToDecimalWhenValueToDecimalAndValueToStringConvertersAreUsed()
+        [NUnit.Framework.DescriptionAttribute("A strange double should be translated to decimal when using ValueToDecimal and Va" +
+            "lueToString converters")]
+        public virtual void AStrangeDoubleShouldBeTranslatedToDecimalWhenUsingValueToDecimalAndValueToStringConverters()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("A strange double should be translated to decimal when ValueToDecimal and ValueToS" +
-                    "tring converters are used", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("A strange double should be translated to decimal when using ValueToDecimal and Va" +
+                    "lueToString converters", ((string[])(null)));
 #line 126
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -530,6 +530,29 @@ this.ScenarioSetup(scenarioInfo);
                     "is table", ((string)(null)), table21, "When ");
 #line 130
  testRunner.Then("the LengthInMeters property should be of type decimal and equal 4.567", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Dates should be translated to DateTime when only ValueToDateTime converter is use" +
+            "d with custom date format")]
+        public virtual void DatesShouldBeTranslatedToDateTimeWhenOnlyValueToDateTimeConverterIsUsedWithCustomDateFormat()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Dates should be translated to DateTime when only ValueToDateTime converter is use" +
+                    "d with custom date format", ((string[])(null)));
+#line 132
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table22 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Birth date"});
+            table22.AddRow(new string[] {
+                        "09/10/1972"});
+#line 133
+ testRunner.When("I create a dynamic instance with only ValueToDateTime converter using date format" +
+                    " dd/MM/yyyy from this table", ((string)(null)), table22, "When ");
+#line 136
+ testRunner.Then("the BirthDate property should be of type DateTime and equal 1972-10-09", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

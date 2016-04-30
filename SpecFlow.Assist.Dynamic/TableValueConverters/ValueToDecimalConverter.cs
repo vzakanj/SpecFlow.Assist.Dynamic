@@ -3,7 +3,7 @@
 namespace SpecFlow.Assist.Dynamic
 {
     /// <summary>
-    /// Tries to convert the value to decimal, otherwise returns null.
+    /// Tries to convert the value to <see cref="decimal"/>, otherwise returns null.
     /// </summary>
     public class ValueToDecimalConverter : ITableValueConverter
     {

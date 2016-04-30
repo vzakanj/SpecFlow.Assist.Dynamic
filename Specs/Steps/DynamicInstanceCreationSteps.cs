@@ -50,8 +50,16 @@ namespace Specs.Steps
             State.OriginalInstance = table.CreateDynamicInstance(converter);
         }
 
+        [When(@"I create a dynamic instance with only ValueToDateTime converter using date format (.*) from this table")]
+        public void WhenICreateADynamicInstanceWithOnlyValueToDateTimeConverterUsingDateFormatFromThisTable(string dateFormat, Table table)
+        {
+            var converter = new ValueToDateTimeConverter(dateFormat);
+            State.OriginalInstance = table.CreateDynamicInstance(converter);
+        }
+
+
         [When(@"I create a dynamic instance with converters (.*) from this table")]
-        public void WhenICreateADynamicInstanceWithConvertersValueToDecimalValueToStringFromThisTable(string commaSeparatedConverterNames, Table table)
+        public void WhenICreateADynamicInstanceWithConvertersFromThisTable(string commaSeparatedConverterNames, Table table)
         {
             var converterNames = GetNameArray(commaSeparatedConverterNames);
 
