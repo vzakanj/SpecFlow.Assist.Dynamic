@@ -26,32 +26,17 @@ namespace TechTalk.SpecFlow.Assist
         private static Lazy<ITableValueConverter> defaultConverter = new Lazy<ITableValueConverter>(() => new DefaultValueConverter(), isThreadSafe: true);
 
         /// <summary>
-        /// Create a dynamic object from the headers and values of the <paramref name="table"/>
-        /// </summary>
-        /// <param name="table">the table to create a dynamic object from</param>
-        /// <returns>the created object</returns>
-        public static ExpandoObject CreateDynamicInstance(this Table table)
-        {
-            if (table.Header.Count == 2 && table.RowCount > 1)
-            {
-                var horizontalTable = CreateHorizontalTable(table);
-                return CreateDynamicInstance(horizontalTable.Rows[0]);
-            }
-
-            if (table.RowCount == 1)
-            {
-                return CreateDynamicInstance(table.Rows[0]);
-            }
-
-            throw new DynamicInstanceFromTableException(ERRORMESS_INSTANCETABLE_FORMAT);
-        }
-
-        /// <summary>
         /// Create a dynamic object from the headers and values of the <paramref name="table"/>,
         /// using the <param name="valueConverters"/> to convert table values into desired
         /// types of the created instance.
         /// </summary>
         /// <param name="table">the table to create a dynamic object from</param>
+        /// <param name="valueConverters">value converters to use when converting values from the table.</param>
+        /// <remarks>
+        /// The order of <paramref name="valueConverters"/> determines the priority of parsing values from the table. 
+        /// e.g. if a <see cref="ValueToStringConverter"/> is specified before a <see cref="ValueToDateTimeConverter"/> then the value will
+        /// be converted to a <see cref="string"/> instead of a <see cref="DateTime"/>.
+        /// </remarks>
         /// <returns>the created object</returns>
         public static ExpandoObject CreateDynamicInstance(this Table table, params ITableValueConverter[] valueConverters)
         {
@@ -70,21 +55,17 @@ namespace TechTalk.SpecFlow.Assist
         }
 
         /// <summary>
-        /// Creates a set of dynamic objects based of the <paramref name="table"/> headers and values
-        /// </summary>
-        /// <param name="table">the table to create a set of dynamics from</param>
-        /// <returns>a set of dynamics</returns>
-        public static IEnumerable<dynamic> CreateDynamicSet(this Table table)
-        {
-            return table.Rows.Select(tableRow => CreateDynamicInstance(tableRow));
-        }
-
-        /// <summary>
         /// Creates a set of dynamic objects based of the <paramref name="table"/> headers and values,
         /// using the <paramref name="valueConverters"/> to convert table values into desired property types of
         /// objects in the created set.
         /// </summary>
         /// <param name="table">the table to create a set of dynamics from</param>
+        /// <param name="valueConverters">value converters to use when converting values from the table.</param>
+        /// <remarks>
+        /// The order of <paramref name="valueConverters"/> determines the priority of parsing values from the table. 
+        /// e.g. if a <see cref="ValueToStringConverter"/> is specified before a <see cref="ValueToDateTimeConverter"/> then the value will
+        /// be converted to a <see cref="string"/> instead of a <see cref="DateTime"/>.
+        /// </remarks>
         /// <returns>a set of dynamics</returns>
         public static IEnumerable<dynamic> CreateDynamicSet(this Table table, params ITableValueConverter[] valueConverters)
         {
@@ -248,7 +229,7 @@ namespace TechTalk.SpecFlow.Assist
             return horizontalTable;
         }
 
-        private static ExpandoObject CreateDynamicInstance(TableRow tablerow, ITableValueConverter[] valueConverters = null)
+        private static ExpandoObject CreateDynamicInstance(TableRow tablerow, params ITableValueConverter[] valueConverters)
         {
             dynamic expando = new ExpandoObject();
             var dicExpando = expando as IDictionary<string, object>;
@@ -263,17 +244,14 @@ namespace TechTalk.SpecFlow.Assist
             return expando;
         }
 
-        private static object CreateTypedValue(string valueFromTable, ITableValueConverter[] valueConverters = null)
+        private static object CreateTypedValue(string valueFromTable, params ITableValueConverter[] valueConverters)
         {
-            if (valueConverters != null)
+            foreach (var converter in valueConverters)
             {
-                foreach (var converter in valueConverters)
+                var value = converter.Convert(valueFromTable);
+                if (value != null)
                 {
-                    var value = converter.Convert(valueFromTable);
-                    if (value != null)
-                    {
-                        return value;
-                    }
+                    return value;
                 }
             }
 
