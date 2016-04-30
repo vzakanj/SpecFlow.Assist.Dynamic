@@ -26,36 +26,37 @@ namespace TechTalk.SpecFlow.Assist
         private static Lazy<ITableValueConverter> defaultConverter = new Lazy<ITableValueConverter>(() => new DefaultValueConverter(), isThreadSafe: true);
 
         /// <summary>
-        /// Create a dynamic object from the headers and values of the <paramref name="table"/>,
-        /// using the <param name="valueConverters"/> to convert table values into desired
-        /// types of the created instance.
+        /// Create a dynamic object from the headers and values of the <paramref name="table"/>.
+        /// Tries to convert properties to <see cref="DateTime"/>, <see cref="decimal"/>, <see cref="double"/> and <see cref="int"/>,
+        /// depending on the property value and falls back to <see cref="string"/> if value does not fit any of them.
         /// </summary>
         /// <param name="table">the table to create a dynamic object from</param>
         /// <returns>the created object</returns>
         public static ExpandoObject CreateDynamicInstance(this Table table)
         {
-            return CreateDynamicInstance(table, new Func<string, object>[0]);
+            return CreateDynamicInstance(table, (Func<string, object>[])null);
         }
 
         /// <summary>
         /// Creates a set of dynamic objects based of the <paramref name="table"/> headers and values,
-        /// using the <paramref name="valueConverters"/> to convert table values into desired property types of
         /// objects in the created set.
+        /// Tries to convert properties of each object to <see cref="DateTime"/>, <see cref="decimal"/>, <see cref="double"/> and <see cref="int"/>,
+        /// depending on the property value and falls back to <see cref="string"/> if value does not fit any of them.
         /// </summary>
         /// <param name="table">the table to create a set of dynamics from</param>
         /// <returns>a set of dynamics</returns>
         public static IEnumerable<dynamic> CreateDynamicSet(this Table table)
         {
-            return CreateDynamicSet(table, new Func<string, object>[0]);
+            return CreateDynamicSet(table, (Func<string, object>[])null);
         }
 
         /// <summary>
         /// Create a dynamic object from the headers and values of the <paramref name="table"/>,
-        /// using the <param name="valueConverters"/> to convert table values into desired
-        /// types of the created instance.
+        /// using the <param name="valueConverters"/> to convert table values to
+        /// types on the created object instance.
         /// </summary>
         /// <param name="table">the table to create a dynamic object from</param>
-        /// <param name="valueConverters">value converters to use when converting values from the table.</param>
+        /// <param name="valueConverters">value converters to use when converting table values</param>
         /// <remarks>
         /// The order of <paramref name="valueConverters"/> determines the priority of parsing values from the table. 
         /// e.g. if a <see cref="ValueToStringConverter"/> is specified before a <see cref="ValueToDateTimeConverter"/> then the value will
@@ -64,7 +65,7 @@ namespace TechTalk.SpecFlow.Assist
         /// <returns>the created object</returns>
         public static ExpandoObject CreateDynamicInstance(this Table table, params ITableValueConverter[] valueConverters)
         {
-            var valueConversionFuncs = CreateValueConversionFuncs(valueConverters);
+            var valueConversionFuncs = WrapValueConvertersWithFuncs(valueConverters);
             if (table.Header.Count == 2 && table.RowCount > 1)
             {
                 var horizontalTable = CreateHorizontalTable(table);
@@ -81,11 +82,11 @@ namespace TechTalk.SpecFlow.Assist
 
         /// <summary>
         /// Create a dynamic object from the headers and values of the <paramref name="table"/>,
-        /// using the <param name="valueConverters"/> to convert table values into desired
-        /// types of the created instance.
+        /// using the <param name="valueConversionFuncs"/> to convert table values to 
+        /// types on the created object instance.
         /// </summary>
         /// <param name="table">the table to create a dynamic object from</param>
-        /// <param name="valueConversionFuncs">value conversion delegates to use when converting values from the table.</param>
+        /// <param name="valueConversionFuncs">value conversion delegates to use when converting table values</param>
         /// <remarks>
         /// The order of <paramref name="valueConversionFuncs"/> determines the priority of parsing values from the table. 
         /// e.g. if a convert to string delegate is specified before a convert to datetime delegate then the value will
@@ -94,17 +95,15 @@ namespace TechTalk.SpecFlow.Assist
         /// <returns>the created object</returns>
         public static ExpandoObject CreateDynamicInstance(this Table table, params Func<string, object>[] valueConversionFuncs)
         {
-            var conversionFuncs = valueConversionFuncs ?? new Func<string, object>[0];
-
             if (table.Header.Count == 2 && table.RowCount > 1)
             {
                 var horizontalTable = CreateHorizontalTable(table);
-                return CreateDynamicInstance(horizontalTable.Rows[0], conversionFuncs);
+                return CreateDynamicInstance(horizontalTable.Rows[0], valueConversionFuncs);
             }
 
             if (table.RowCount == 1)
             {
-                return CreateDynamicInstance(table.Rows[0], conversionFuncs);
+                return CreateDynamicInstance(table.Rows[0], valueConversionFuncs);
             }
 
             throw new DynamicInstanceFromTableException(ERRORMESS_INSTANCETABLE_FORMAT);
@@ -112,11 +111,11 @@ namespace TechTalk.SpecFlow.Assist
 
         /// <summary>
         /// Creates a set of dynamic objects based of the <paramref name="table"/> headers and values,
-        /// using the <paramref name="valueConverters"/> to convert table values into desired property types of
+        /// using the <paramref name="valueConversionFuncs"/> to convert table values to property types of
         /// objects in the created set.
         /// </summary>
         /// <param name="table">the table to create a set of dynamics from</param>
-        /// <param name="valueConversionFuncs">value conversion delegates to use when converting values from the table.</param>
+        /// <param name="valueConversionFuncs">value conversion delegates to use when converting table values</param>
         /// <remarks>
         /// The order of <paramref name="valueConversionFuncs"/> determines the priority of parsing values from the table. 
         /// e.g. if a convert to string delegate is specified before a convert to datetime delegate then the value will
@@ -134,7 +133,7 @@ namespace TechTalk.SpecFlow.Assist
         /// objects in the created set.
         /// </summary>
         /// <param name="table">the table to create a set of dynamics from</param>
-        /// <param name="valueConverters">value converters to use when converting values from the table.</param>
+        /// <param name="valueConverters">value converters to use when converting table values</param>
         /// <remarks>
         /// The order of <paramref name="valueConverters"/> determines the priority of parsing values from the table. 
         /// e.g. if a <see cref="ValueToStringConverter"/> is specified before a <see cref="ValueToDateTimeConverter"/> then the value will
@@ -143,32 +142,91 @@ namespace TechTalk.SpecFlow.Assist
         /// <returns>a set of dynamics</returns>
         public static IEnumerable<dynamic> CreateDynamicSet(this Table table, params ITableValueConverter[] valueConverters)
         {
-            var valueConversionFuncs = CreateValueConversionFuncs(valueConverters);
+            var valueConversionFuncs = WrapValueConvertersWithFuncs(valueConverters);
             return table.Rows.Select(tableRow => CreateDynamicInstance(tableRow, valueConversionFuncs));
         }
 
         /// <summary>
         /// Validates if a dynamic instance <paramref name="instance"/> matches the <paramref name="table"/>
         /// Throws descriptive exception if not
+        /// Before comparison tries to convert table values to <see cref="DateTime"/>, <see cref="decimal"/>, <see cref="double"/> and <see cref="int"/>,
+        /// depending on the property value and falls back to <see cref="string"/> if value does not fit any of them.
         /// </summary>
         /// <param name="table">the table to compare the instance against</param>
         /// <param name="instance">the instance to compare the table against</param>
         public static void CompareToDynamicInstance(this Table table, dynamic instance)
         {
+            CompareToDynamicInstance(table, instance, (Func<string, object>[])null);
+        }
+
+        /// <summary>
+        /// Validates if a dynamic instance <paramref name="instance"/> matches the <paramref name="table"/>
+        /// using the <param name="valueConversionFuncs"/> to convert table values to types before comparison.
+        /// Throws descriptive exception if not
+        /// </summary>
+        /// <param name="table">the table to compare the instance against</param>
+        /// <param name="instance">the instance to compare the table against</param>
+        /// <param name="valueConversionFuncs">value conversion delegates to use when converting table values</param>
+        /// <remarks>
+        /// The order of <paramref name="valueConversionFuncs"/> determines the priority of parsing values from the table. 
+        /// e.g. if a convert to string delegate is specified before a convert to datetime delegate then the value will
+        /// be converted to a <see cref="string"/> instead of a <see cref="DateTime"/>.
+        /// </remarks>
+        public static void CompareToDynamicInstance(this Table table, dynamic instance, params Func<string, object>[] valueConversionFuncs)
+        {
             IList<string> propDiffs = GetPropertyDifferences(table, instance);
             if (propDiffs.Any())
                 throw new DynamicInstanceComparisonException(propDiffs);
 
-            AssertValuesOfRowDifference(table.Rows[0], instance);
+            AssertValuesOfRowDifference(table.Rows[0], instance, valueConversionFuncs);
+        }
+
+        /// <summary>
+        /// Validates if a dynamic instance <paramref name="instance"/> matches the <paramref name="table"/>
+        /// using the <param name="valueConverters"/> to convert table values to types before comparison.
+        /// Throws descriptive exception if not
+        /// </summary>
+        /// <param name="table">the table to compare the instance against</param>
+        /// <param name="instance">the instance to compare the table against</param>
+        /// <param name="valueConverters">value converters to use when converting table values</param>
+        /// <remarks>
+        /// The order of <paramref name="valueConverters"/> determines the priority of parsing values from the table. 
+        /// e.g. if a <see cref="ValueToStringConverter"/> is specified before a <see cref="ValueToDateTimeConverter"/> then the value will
+        /// be converted to a <see cref="string"/> instead of a <see cref="DateTime"/>.
+        /// </remarks>
+        public static void CompareToDynamicInstance(this Table table, dynamic instance, params ITableValueConverter[] valueConverters)
+        {
+            var valueConversionFuncs = WrapValueConvertersWithFuncs(valueConverters);
+            CompareToDynamicInstance(table, instance, valueConversionFuncs);
         }
 
         /// <summary>
         /// Validates that the dynamic set <paramref name="set"/> matches the <paramref name="table"/>
         /// Throws descriptive exception if not
+        /// Be fore comparison tries to convert table values to <see cref="DateTime"/>, <see cref="decimal"/>, <see cref="double"/> and <see cref="int"/>,
+        /// depending on the value and falls back to <see cref="string"/> if value does not fit any of them.
         /// </summary>
         /// <param name="table">the table to compare the set against</param>
         /// <param name="set">the set to compare the table against</param>
         public static void CompareToDynamicSet(this Table table, IList<dynamic> set)
+        {
+            CompareToDynamicSet(table, set, (Func<string, object>[])null);
+        }
+
+        /// <summary>
+        /// Validates that the dynamic set <paramref name="set"/> matches the <paramref name="table"/>
+        /// using the <param name="valueConversionFuncs"/> to convert table values to types before comparison.
+        /// Throws descriptive exception if not
+        /// </summary>
+        /// <param name="table">the table to compare the set against</param>
+        /// <param name="set">the set to compare the table against</param>
+        /// <param name="valueConversionFuncs">value conversion delegates to use when converting table values</param>
+        /// <remarks>
+        /// The order of <paramref name="valueConversionFuncs"/> determines the priority of parsing values from the table. 
+        /// e.g. if a convert to string delegate is specified before a convert to datetime delegate then the value will
+        /// be converted to a <see cref="string"/> instead of a <see cref="DateTime"/>.
+        /// </remarks>
+        public static void CompareToDynamicSet(this Table table, IList<dynamic> set, params Func<string, object>[] valueConversionFuncs)
         {
             AssertEqualNumberOfRows(table, set);
 
@@ -180,7 +238,7 @@ namespace TechTalk.SpecFlow.Assist
 
             // Now we know that the table and the list has the same number of rows and properties
 
-            var valueDifference = GetSetValueDifferences(table, set);
+            var valueDifference = GetSetValueDifferences(table, set, valueConversionFuncs);
 
             if (valueDifference.Any())
             {
@@ -188,7 +246,26 @@ namespace TechTalk.SpecFlow.Assist
             }
         }
 
-        private static List<string> GetSetValueDifferences(Table table, IList<object> set)
+        /// <summary>
+        /// Validates that the dynamic set <paramref name="set"/> matches the <paramref name="table"/>
+        /// using the <param name="valueConverters"/> to convert table values to types before comparison.
+        /// Throws descriptive exception if not
+        /// </summary>
+        /// <param name="table">the table to compare the set against</param>
+        /// <param name="set">the set to compare the table against</param>
+        /// <param name="valueConverters">value converters to use when converting table values</param>
+        /// <remarks>
+        /// The order of <paramref name="valueConverters"/> determines the priority of parsing values from the table. 
+        /// e.g. if a <see cref="ValueToStringConverter"/> is specified before a <see cref="ValueToDateTimeConverter"/> then the value will
+        /// be converted to a <see cref="string"/> instead of a <see cref="DateTime"/>.
+        /// </remarks>
+        public static void CompareToDynamicSet(this Table table, IList<dynamic> set, params ITableValueConverter[] valueConverters)
+        {
+            var valueConversionFuncs = WrapValueConvertersWithFuncs(valueConverters);
+            CompareToDynamicSet(table, set, valueConversionFuncs);
+        }
+
+        private static List<string> GetSetValueDifferences(Table table, IList<object> set, Func<string, object>[] valueConversionFuncs)
         {
             var memberNames = Impromptu.GetMemberNames(set[0]);
             var valueDifference = new List<string>();
@@ -198,7 +275,7 @@ namespace TechTalk.SpecFlow.Assist
                 foreach (var memberName in memberNames)
                 {
                     var currentHeader = string.Empty;
-                    var rowValue = GetRowValue(i, table, memberName, out currentHeader);
+                    var rowValue = GetRowValue(i, table, memberName, valueConversionFuncs, out currentHeader);
                     var instanceValue = Impromptu.InvokeGet(set[i], memberName);
 
                     if (!instanceValue.Equals(rowValue))
@@ -217,7 +294,7 @@ namespace TechTalk.SpecFlow.Assist
             return valueDifference;
         }
 
-        private static object GetRowValue(int rowIndex, Table table, string memberName, out string currentHeader)
+        private static object GetRowValue(int rowIndex, Table table, string memberName, Func<string, object>[] valueConversionFuncs, out string currentHeader)
         {
             object rowValue = null;
             currentHeader = string.Empty;
@@ -226,16 +303,16 @@ namespace TechTalk.SpecFlow.Assist
                 if (CreatePropertyName(header) == memberName)
                 {
                     currentHeader = header;
-                    rowValue = CreateTypedValue(table.Rows[rowIndex][header]);
+                    rowValue = CreateTypedValue(table.Rows[rowIndex][header], valueConversionFuncs);
                     break;
                 }
             }
             return rowValue;
         }
 
-        private static void AssertValuesOfRowDifference(TableRow tableRow, dynamic instance)
+        private static void AssertValuesOfRowDifference(TableRow tableRow, dynamic instance, Func<string, object>[] valueConversionFuncs)
         {
-            IList<string> valueDiffs = ValidateValuesOfRow(tableRow, instance);
+            IList<string> valueDiffs = ValidateValuesOfRow(tableRow, instance, valueConversionFuncs);
             if (valueDiffs.Any())
                 throw new DynamicInstanceComparisonException(valueDiffs);
         }
@@ -257,7 +334,7 @@ namespace TechTalk.SpecFlow.Assist
             }
         }
 
-        private static IList<string> ValidateValuesOfRow(TableRow tableRow, dynamic instance)
+        private static IList<string> ValidateValuesOfRow(TableRow tableRow, dynamic instance, Func<string, object>[] valueConversionFuncs)
         {
             var valueDiffs = new List<string>();
 
@@ -265,7 +342,7 @@ namespace TechTalk.SpecFlow.Assist
             {
                 var propertyName = CreatePropertyName(header);
                 var valueFromInstance = Impromptu.InvokeGet(instance, propertyName);
-                var valueFromTable = CreateTypedValue(tableRow[header]);
+                var valueFromTable = CreateTypedValue(tableRow[header], valueConversionFuncs);
 
                 if (!valueFromInstance.Equals(valueFromTable))
                 {
@@ -304,7 +381,7 @@ namespace TechTalk.SpecFlow.Assist
             return horizontalTable;
         }
 
-        private static ExpandoObject CreateDynamicInstance(TableRow tablerow, params Func<string, object>[] valueConversionFuncs)
+        private static ExpandoObject CreateDynamicInstance(TableRow tablerow, Func<string, object>[] valueConversionFuncs)
         {
             dynamic expando = new ExpandoObject();
             var dicExpando = expando as IDictionary<string, object>;
@@ -319,11 +396,11 @@ namespace TechTalk.SpecFlow.Assist
             return expando;
         }
 
-        private static Func<string, object>[] CreateValueConversionFuncs(ITableValueConverter[] valueConverters)
+        private static Func<string, object>[] WrapValueConvertersWithFuncs(ITableValueConverter[] valueConverters)
         {
             if (valueConverters == null)
             {
-                return new Func<string, object>[0];
+                return null;
             }
 
             List<Func<string, object>> valueConversionFuncs = new List<Func<string, object>>();
@@ -336,14 +413,17 @@ namespace TechTalk.SpecFlow.Assist
         }
 
 
-        private static object CreateTypedValue(string valueFromTable, params Func<string, object>[] valueConversionFuncs)
+        private static object CreateTypedValue(string valueFromTable, Func<string, object>[] valueConversionFuncs)
         {
-            foreach (var func in valueConversionFuncs)
+            if (valueConversionFuncs != null)
             {
-                var value = func.Invoke(valueFromTable);
-                if (value != null)
+                foreach (var func in valueConversionFuncs)
                 {
-                    return value;
+                    var value = func.Invoke(valueFromTable);
+                    if (value != null)
+                    {
+                        return value;
+                    }
                 }
             }
 
