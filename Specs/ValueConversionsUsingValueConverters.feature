@@ -1,7 +1,7 @@
-﻿Feature: Custom value conversion
-	In order to easier compare values of types
+﻿Feature: Conversions of values using custom value converters
+	In order to easier compare values of the most common types
 	As a user of SpecFlow Dynamic
-	I want to specify custom logic for converting strings into types
+	I want SpecFlow Dynamic to translate strings into real types using custom value converters
 
 Scenario: Strings should be translated to strings when only ValueToString converter is used
 	When I create a dynamic instance with only ValueToString converter from this table

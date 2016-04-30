@@ -31,6 +31,30 @@ namespace TechTalk.SpecFlow.Assist
         /// types of the created instance.
         /// </summary>
         /// <param name="table">the table to create a dynamic object from</param>
+        /// <returns>the created object</returns>
+        public static ExpandoObject CreateDynamicInstance(this Table table)
+        {
+            return CreateDynamicInstance(table, new Func<string, object>[0]);
+        }
+
+        /// <summary>
+        /// Creates a set of dynamic objects based of the <paramref name="table"/> headers and values,
+        /// using the <paramref name="valueConverters"/> to convert table values into desired property types of
+        /// objects in the created set.
+        /// </summary>
+        /// <param name="table">the table to create a set of dynamics from</param>
+        /// <returns>a set of dynamics</returns>
+        public static IEnumerable<dynamic> CreateDynamicSet(this Table table)
+        {
+            return CreateDynamicSet(table, new Func<string, object>[0]);
+        }
+
+        /// <summary>
+        /// Create a dynamic object from the headers and values of the <paramref name="table"/>,
+        /// using the <param name="valueConverters"/> to convert table values into desired
+        /// types of the created instance.
+        /// </summary>
+        /// <param name="table">the table to create a dynamic object from</param>
         /// <param name="valueConverters">value converters to use when converting values from the table.</param>
         /// <remarks>
         /// The order of <paramref name="valueConverters"/> determines the priority of parsing values from the table. 
@@ -40,18 +64,68 @@ namespace TechTalk.SpecFlow.Assist
         /// <returns>the created object</returns>
         public static ExpandoObject CreateDynamicInstance(this Table table, params ITableValueConverter[] valueConverters)
         {
+            var valueConversionFuncs = CreateValueConversionFuncs(valueConverters);
             if (table.Header.Count == 2 && table.RowCount > 1)
             {
                 var horizontalTable = CreateHorizontalTable(table);
-                return CreateDynamicInstance(horizontalTable.Rows[0], valueConverters);
+                return CreateDynamicInstance(horizontalTable.Rows[0], valueConversionFuncs);
             }
 
             if (table.RowCount == 1)
             {
-                return CreateDynamicInstance(table.Rows[0], valueConverters);
+                return CreateDynamicInstance(table.Rows[0], valueConversionFuncs);
             }
 
             throw new DynamicInstanceFromTableException(ERRORMESS_INSTANCETABLE_FORMAT);
+        }
+
+        /// <summary>
+        /// Create a dynamic object from the headers and values of the <paramref name="table"/>,
+        /// using the <param name="valueConverters"/> to convert table values into desired
+        /// types of the created instance.
+        /// </summary>
+        /// <param name="table">the table to create a dynamic object from</param>
+        /// <param name="valueConversionFuncs">value conversion delegates to use when converting values from the table.</param>
+        /// <remarks>
+        /// The order of <paramref name="valueConversionFuncs"/> determines the priority of parsing values from the table. 
+        /// e.g. if a convert to string delegate is specified before a convert to datetime delegate then the value will
+        /// be converted to a <see cref="string"/> instead of a <see cref="DateTime"/>.
+        /// </remarks>
+        /// <returns>the created object</returns>
+        public static ExpandoObject CreateDynamicInstance(this Table table, params Func<string, object>[] valueConversionFuncs)
+        {
+            var conversionFuncs = valueConversionFuncs ?? new Func<string, object>[0];
+
+            if (table.Header.Count == 2 && table.RowCount > 1)
+            {
+                var horizontalTable = CreateHorizontalTable(table);
+                return CreateDynamicInstance(horizontalTable.Rows[0], conversionFuncs);
+            }
+
+            if (table.RowCount == 1)
+            {
+                return CreateDynamicInstance(table.Rows[0], conversionFuncs);
+            }
+
+            throw new DynamicInstanceFromTableException(ERRORMESS_INSTANCETABLE_FORMAT);
+        }
+
+        /// <summary>
+        /// Creates a set of dynamic objects based of the <paramref name="table"/> headers and values,
+        /// using the <paramref name="valueConverters"/> to convert table values into desired property types of
+        /// objects in the created set.
+        /// </summary>
+        /// <param name="table">the table to create a set of dynamics from</param>
+        /// <param name="valueConversionFuncs">value conversion delegates to use when converting values from the table.</param>
+        /// <remarks>
+        /// The order of <paramref name="valueConversionFuncs"/> determines the priority of parsing values from the table. 
+        /// e.g. if a convert to string delegate is specified before a convert to datetime delegate then the value will
+        /// be converted to a <see cref="string"/> instead of a <see cref="DateTime"/>.
+        /// </remarks>
+        /// <returns>a set of dynamics</returns>
+        public static IEnumerable<dynamic> CreateDynamicSet(this Table table, params Func<string, object>[] valueConversionFuncs)
+        {
+            return table.Rows.Select(tableRow => CreateDynamicInstance(tableRow, valueConversionFuncs));
         }
 
         /// <summary>
@@ -69,7 +143,8 @@ namespace TechTalk.SpecFlow.Assist
         /// <returns>a set of dynamics</returns>
         public static IEnumerable<dynamic> CreateDynamicSet(this Table table, params ITableValueConverter[] valueConverters)
         {
-            return table.Rows.Select(tableRow => CreateDynamicInstance(tableRow, valueConverters));
+            var valueConversionFuncs = CreateValueConversionFuncs(valueConverters);
+            return table.Rows.Select(tableRow => CreateDynamicInstance(tableRow, valueConversionFuncs));
         }
 
         /// <summary>
@@ -229,7 +304,7 @@ namespace TechTalk.SpecFlow.Assist
             return horizontalTable;
         }
 
-        private static ExpandoObject CreateDynamicInstance(TableRow tablerow, params ITableValueConverter[] valueConverters)
+        private static ExpandoObject CreateDynamicInstance(TableRow tablerow, params Func<string, object>[] valueConversionFuncs)
         {
             dynamic expando = new ExpandoObject();
             var dicExpando = expando as IDictionary<string, object>;
@@ -237,18 +312,35 @@ namespace TechTalk.SpecFlow.Assist
             foreach (var header in tablerow.Keys)
             {
                 var propName = CreatePropertyName(header);
-                var propValue = CreateTypedValue(tablerow[header], valueConverters);
+                var propValue = CreateTypedValue(tablerow[header], valueConversionFuncs);
                 dicExpando.Add(propName, propValue);
             }
 
             return expando;
         }
 
-        private static object CreateTypedValue(string valueFromTable, params ITableValueConverter[] valueConverters)
+        private static Func<string, object>[] CreateValueConversionFuncs(ITableValueConverter[] valueConverters)
         {
+            if (valueConverters == null)
+            {
+                return new Func<string, object>[0];
+            }
+
+            List<Func<string, object>> valueConversionFuncs = new List<Func<string, object>>();
             foreach (var converter in valueConverters)
             {
-                var value = converter.Convert(valueFromTable);
+                valueConversionFuncs.Add(value => converter.Convert(value));
+            }
+
+            return valueConversionFuncs.ToArray();
+        }
+
+
+        private static object CreateTypedValue(string valueFromTable, params Func<string, object>[] valueConversionFuncs)
+        {
+            foreach (var func in valueConversionFuncs)
+            {
+                var value = func.Invoke(valueFromTable);
                 if (value != null)
                 {
                     return value;
