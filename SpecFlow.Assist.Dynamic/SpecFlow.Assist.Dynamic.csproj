@@ -58,6 +58,7 @@
     <Compile Include="TableValueConverters\ITableValueConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TableValueConverters\DefaultValueConverter.cs" />
+    <Compile Include="TableValueConverters\ValueToDateTimeConverter.cs" />
     <Compile Include="TableValueConverters\ValueToDecimalConverter.cs" />
     <Compile Include="TableValueConverters\ValueToDoubleConverter.cs" />
     <Compile Include="TableValueConverters\ValueToIntConverter.cs" />
