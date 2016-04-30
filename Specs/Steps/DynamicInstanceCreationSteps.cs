@@ -7,6 +7,7 @@ using SpecFlow.Assist.Dynamic;
 using Specs.Util;
 using System.Reflection;
 using System.Linq;
+using System.Globalization;
 
 namespace Specs.Steps
 {
@@ -75,10 +76,19 @@ namespace Specs.Steps
         [When(@"I create a dynamic instance with only (.*) delegate from this table")]
         public void WhenICreateADynamicInstanceWithOnlyValueToStringDelegateFromThisTable(string funcName, Table table)
         {
-            Func<string, object> func = GetConverterFuncByName(funcName);
+            Func<string, object> func = GetConversionDelegateByName(funcName);
 
             State.OriginalInstance = table.CreateDynamicInstance(func);
         }
+
+        [When(@"I create a dynamic instance with only ValueToDateTime delegate using date format dd/MM/yyyy from this table")]
+        public void WhenICreateADynamicInstanceWithOnlyValueToDateTimeDelegateUsingDateFormatDdMMYyyyFromThisTable(Table table)
+        {
+            Func<string, object> func = GetConversionDelegateByName("ValueToDateTime_ddMMyyyy");
+
+            State.OriginalInstance = table.CreateDynamicInstance(func);
+        }
+
 
         [When(@"I create a dynamic instance with delegates (.*) from this table")]
         public void WhenICreateADynamicInstanceWithDelegatesValueToDecimalValueToStringFromThisTable(string commaSeparatedFuncNames, Table table)
@@ -89,7 +99,7 @@ namespace Specs.Steps
 
             foreach (var name in funcNames)
             {
-                convertFuncs.Add(GetConverterFuncByName(name));
+                convertFuncs.Add(GetConversionDelegateByName(name));
             }
 
             State.OriginalInstance = table.CreateDynamicInstance(convertFuncs.ToArray());
@@ -103,9 +113,9 @@ namespace Specs.Steps
                 .ToArray();
         }
 
-        private static Func<string, object> GetConverterFuncByName(string funcName)
+        private static Func<string, object> GetConversionDelegateByName(string funcName)
         {
-            var funcField = typeof(ConverterFuncs).GetField(funcName, BindingFlags.Static | BindingFlags.Public);
+            var funcField = typeof(ConverterDelegates).GetField(funcName, BindingFlags.Static | BindingFlags.Public);
             var func = (Func<string, object>)funcField.GetValue(null);
             return func;
         }
@@ -118,9 +128,33 @@ namespace Specs.Steps
             return (ITableValueConverter)Activator.CreateInstance(dynamicValueConverterType);
         }
 
-        public static class ConverterFuncs
+        public static class ConverterDelegates
         {
             public static Func<string, object> ValueToString = value => value;
+
+            public static Func<string, object> ValueToDateTime = value =>
+            {
+                DateTime date;
+
+                if (DateTime.TryParse(value, out date))
+                {
+                    return date;
+                }
+
+                return null;
+            };
+
+            public static Func<string, object> ValueToDateTime_ddMMyyyy = value =>
+            {
+                DateTime date;
+
+                if (DateTime.TryParseExact(value, "dd/MM/yyyy", CultureInfo.CurrentCulture, DateTimeStyles.None, out date))
+                {
+                    return date;
+                }
+
+                return null;
+            };
 
             public static Func<string, object> ValueToDecimal = value =>
             {
