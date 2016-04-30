@@ -31,5 +31,5 @@ Scenario: Test property with step argument transformation
 	Given I create a dynamic instance from this table using step argument transformation
 		| Name   | Age | Birth date | Length in meters | Is Developer |
 		| Marcus | 39  | 1972-10-09 | 1.96             | true         |
-	Then the Name property should equal 'Marcus'
-	And the IsDeveloper property should equal 'true'
+	Then the Name property should be of type string and equal Marcus
+	And the IsDeveloper property should be of type bool and equal true

@@ -73,6 +73,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CreateDynamicSetsAndInstancesWithStepArgumentTransformation.feature</DependentUpon>
     </Compile>
+    <Compile Include="Util\ReflectionUtil.cs" />
+    <Compile Include="ValueConversionsUsingDelegates.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ValueConversionsUsingDelegates.feature</DependentUpon>
+    </Compile>
     <Compile Include="ValueConversionsUsingValueConverters.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -94,7 +100,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ReservedCharsInCSharp.feature</DependentUpon>
     </Compile>
-    <Compile Include="Steps\CustomValueConversionSteps.cs" />
     <Compile Include="Steps\StepArgumentTransformationSteps.cs" />
     <Compile Include="Steps\DynamicSetComparisonSteps.cs" />
     <Compile Include="Steps\DynamicInstanceComparisionSteps.cs" />
@@ -105,11 +110,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ValueConversions.feature</DependentUpon>
-    </Compile>
-    <Compile Include="ValueConversionsUsingDelegates.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ValueConversionsUsingDelegates.feature</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -83,7 +83,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 7
  testRunner.When("I create a dynamic instance with only ValueToString converter from this table", ((string)(null)), table1, "When ");
 #line 10
- testRunner.Then("the Name property should be of type String and equal Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the Name property should be of type string and equal Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -105,7 +105,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 13
  testRunner.When("I create a dynamic instance with only ValueToString converter from this table", ((string)(null)), table2, "When ");
 #line 16
- testRunner.Then("the Age property should be of type String and equal 39", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the Age property should be of type string and equal 39", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -127,7 +127,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 19
  testRunner.When("I create a dynamic instance with only ValueToString converter from this table", ((string)(null)), table3, "When ");
 #line 22
- testRunner.Then("the LengthInMeters property should be of type String and equal 1.96", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the LengthInMeters property should be of type string and equal 1.96", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -149,7 +149,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 25
  testRunner.When("I create a dynamic instance with only ValueToString converter from this table", ((string)(null)), table4, "When ");
 #line 28
- testRunner.Then("the MolecularWeight property should be of type String and equal 1000000000.111199" +
+ testRunner.Then("the MolecularWeight property should be of type string and equal 1000000000.111199" +
                     "1111", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -170,7 +170,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 31
  testRunner.When("I create a dynamic instance with only ValueToString converter from this table", ((string)(null)), table5, "When ");
 #line 34
- testRunner.Then("the BirthDate property should be of type String and equal 1972-10-09", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the BirthDate property should be of type string and equal 1972-10-09", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -190,7 +190,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 37
  testRunner.When("I create a dynamic instance with only ValueToString converter from this table", ((string)(null)), table6, "When ");
 #line 40
- testRunner.Then("the IsDeveloper property should be of type String and equal false", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the IsDeveloper property should be of type string and equal false", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -212,7 +212,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 43
  testRunner.When("I create a dynamic instance with only ValueToString converter from this table", ((string)(null)), table7, "When ");
 #line 46
- testRunner.Then("the LengthInMeters property should be of type String and equal 4.567", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the LengthInMeters property should be of type string and equal 4.567", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -234,7 +234,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 49
  testRunner.When("I create a dynamic instance with only ValueToDecimal converter from this table", ((string)(null)), table8, "When ");
 #line 52
- testRunner.Then("the Name property should be of type String and equal Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the Name property should be of type string and equal Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -256,7 +256,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 55
  testRunner.When("I create a dynamic instance with only ValueToDecimal converter from this table", ((string)(null)), table9, "When ");
 #line 58
- testRunner.Then("the Age property should be of type Decimal and equal 39.00", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the Age property should be of type decimal and equal 39.00", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -278,7 +278,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 61
  testRunner.When("I create a dynamic instance with only ValueToDecimal converter from this table", ((string)(null)), table10, "When ");
 #line 64
- testRunner.Then("the LengthInMeters property should be of type Decimal and equal 1.96", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the LengthInMeters property should be of type decimal and equal 1.96", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -300,7 +300,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 67
  testRunner.When("I create a dynamic instance with only ValueToDecimal converter from this table", ((string)(null)), table11, "When ");
 #line 70
- testRunner.Then("the MolecularWeight property should be of type Decimal and equal 1000000000.11119" +
+ testRunner.Then("the MolecularWeight property should be of type decimal and equal 1000000000.11119" +
                     "91111", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -345,7 +345,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 79
  testRunner.When("I create a dynamic instance with only ValueToDecimal converter from this table", ((string)(null)), table13, "When ");
 #line 82
- testRunner.Then("the IsDeveloper property should be of type Boolean and equal false", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the IsDeveloper property should be of type bool and equal false", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -367,7 +367,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 85
  testRunner.When("I create a dynamic instance with only ValueToDecimal converter from this table", ((string)(null)), table14, "When ");
 #line 88
- testRunner.Then("the LengthInMeters property should be of type Decimal and equal 4.567", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the LengthInMeters property should be of type decimal and equal 4.567", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -390,7 +390,7 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.When("I create a dynamic instance with converters ValueToDecimal, ValueToString from th" +
                     "is table", ((string)(null)), table15, "When ");
 #line 94
- testRunner.Then("the Name property should be of type String and equal Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the Name property should be of type string and equal Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -413,7 +413,7 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.When("I create a dynamic instance with converters ValueToDecimal, ValueToString from th" +
                     "is table", ((string)(null)), table16, "When ");
 #line 100
- testRunner.Then("the Age property should be of type Decimal and equal 39.00", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the Age property should be of type decimal and equal 39.00", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -436,7 +436,7 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.When("I create a dynamic instance with converters ValueToDecimal, ValueToString from th" +
                     "is table", ((string)(null)), table17, "When ");
 #line 106
- testRunner.Then("the LengthInMeters property should be of type Decimal and equal 1.96", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the LengthInMeters property should be of type decimal and equal 1.96", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -459,7 +459,7 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.When("I create a dynamic instance with converters ValueToDecimal, ValueToString from th" +
                     "is table", ((string)(null)), table18, "When ");
 #line 112
- testRunner.Then("the MolecularWeight property should be of type Decimal and equal 1000000000.11119" +
+ testRunner.Then("the MolecularWeight property should be of type decimal and equal 1000000000.11119" +
                     "91111", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -483,7 +483,7 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.When("I create a dynamic instance with converters ValueToDecimal, ValueToString from th" +
                     "is table", ((string)(null)), table19, "When ");
 #line 118
- testRunner.Then("the BirthDate property should be of type String and equal 1972-10-09", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the BirthDate property should be of type string and equal 1972-10-09", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -506,7 +506,7 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.When("I create a dynamic instance with converters ValueToDecimal, ValueToString from th" +
                     "is table", ((string)(null)), table20, "When ");
 #line 124
- testRunner.Then("the IsDeveloper property should be of type String and equal false", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the IsDeveloper property should be of type string and equal false", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -529,7 +529,7 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.When("I create a dynamic instance with converters ValueToDecimal, ValueToString from th" +
                     "is table", ((string)(null)), table21, "When ");
 #line 130
- testRunner.Then("the LengthInMeters property should be of type Decimal and equal 4.567", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the LengthInMeters property should be of type decimal and equal 4.567", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

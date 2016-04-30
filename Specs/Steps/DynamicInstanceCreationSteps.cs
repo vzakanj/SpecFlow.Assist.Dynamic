@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using Should.Fluent;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
+using SpecFlow.Assist.Dynamic;
+using Specs.Util;
+using System.Reflection;
+using System.Linq;
 
 namespace Specs.Steps
 {
@@ -17,96 +21,6 @@ namespace Specs.Steps
             State.OriginalInstance = table.CreateDynamicInstance();
         }
 
-        [Then(@"the Name property should equal '(.*)'")]
-        public void NameShouldBe(string expectedValue)
-        {
-            ((string)State.OriginalInstance.Name).Should().Equal(expectedValue);
-        }
-
-        [Then(@"the Age property should equal (\d+)")]
-        public void AgeShouldBe(int expectedAge)
-        {
-            ((int)State.OriginalInstance.Age).Should().Equal(expectedAge);
-        }
-
-        [Then(@"the age property should equal (\d+)")]
-        public void LowerCaseAgeShouldBe(int expectedAge)
-        {
-            ((int) State.OriginalInstance.age).Should().Equal(expectedAge);
-        }
-
-        [Then(@"the BirthDate property should equal (.*)")]
-        public void BirthDateShouldBe(string expectedDate)
-        {
-            ((DateTime)State.OriginalInstance.BirthDate).Should().Equal(DateTime.Parse(expectedDate));
-        }
-
-
-        [Then]
-        public void ThenTheLengthInMetersPropertyShouldEqual_P0(double expectedLenghtInMeters)
-        {
-            CheckLengthInMeters(expectedLenghtInMeters);
-
-        }
-
-        
-        [Then(@"the LengthInMeters property should equal '(\d+\.\d+)'")]
-        public void LengthInMeterShouldBe(double expectedLenghtInMeters)
-        {
-            CheckLengthInMeters(expectedLenghtInMeters);
-        }
-
-
-        [Then(@"the MolecularWeight property should equal '(\d+\.\d+)'")]
-        public void MolecularWeightShouldBe(decimal expectedMolecularWeight)
-        {
-            CheckMolecularWeight(expectedMolecularWeight);
-        }
-
-
-
-        private static void CheckLengthInMeters(double expectedLenghtInMeters)
-        {
-            ((double) State.OriginalInstance.LengthInMeters).Should().Equal(expectedLenghtInMeters);
-        }
-
-
-        private static void CheckMolecularWeight(decimal expectedMolecularWeight)
-        {
-            ((decimal)State.OriginalInstance.MolecularWeight).Should().Equal(expectedMolecularWeight);
-        }
-
-        [Then(@"the SATScore should be (\d+)")]
-        public void SATTest(int expectedScore)
-        {
-            ((int) State.OriginalInstance.SATScore).Should().Equal(expectedScore);
-        }
-
-        [Then(@"the IsDeveloper property should equal '(.*)'")]
-        public void ThenTheIsDeveloperPropertyShouldEqualTrueAndBeOfTypeBool(bool expectedValue)
-        {
-            ((bool) State.OriginalInstance.IsDeveloper).Should().Equal(expectedValue);
-        }
-
-        [Then(@"the CharpNmeWithStrangeChars property should equal '(.*)'")]
-        public void ThenTheCharpNmeWithStrangeCharsPropertyShouldEqual(string expectedValue)
-        {
-            ((string)State.OriginalInstance.CharpNmeWithStrangeChars).Should().Equal(expectedValue);
-
-        }
-
-        [Then(@"the My_Nice_Variable property should equal '(.*)'")]
-        public void ThenTheMy_Nice_VariablePropertyShouldEqual(string expectedValue)
-        {
-            ((string)State.OriginalInstance.My_Nice_Variable).Should().Equal(expectedValue);
-
-        }
-
-        [Then(@"the MyVariableNeedsCleanUp property should equal '(.*)'")]
-        public void ThenTheMyVariableNeedsCleanUpPropertyShouldEqual(string expectedValue)
-        {
-            ((string)State.OriginalInstance.MyVariableNeedsCleanUp).Should().Equal(expectedValue);
-        }
 
         [When(@"I create a dynamic instance with only reserved chars")]
         public void OnlyReservedChars(Table table)
@@ -129,6 +43,109 @@ namespace Specs.Steps
             ex.Message.Should().Contain("only contains");
         }
 
+        [When(@"I create a dynamic instance with only (.*) converter from this table")]
+        public void WhenICreateADynamicInstanceWithCustomConverterFromThisTable(string converterName, Table table)
+        {
+            var converter = GetTableValueConverterByName(converterName);
+            State.OriginalInstance = table.CreateDynamicInstance(converter);
+        }
 
+        [When(@"I create a dynamic instance with converters (.*) from this table")]
+        public void WhenICreateADynamicInstanceWithConvertersValueToDecimalValueToStringFromThisTable(string commaSeparatedConverterNames, Table table)
+        {
+            var converterNames = GetNameArray(commaSeparatedConverterNames);
+
+            var converters = new List<ITableValueConverter>();
+            foreach (var name in converterNames)
+            {
+                converters.Add(GetTableValueConverterByName(name));
+            }
+
+            State.OriginalInstance = table.CreateDynamicInstance(converters.ToArray());
+        }
+
+        [When(@"I create a dynamic instance with only (.*) delegate from this table")]
+        public void WhenICreateADynamicInstanceWithOnlyValueToStringDelegateFromThisTable(string funcName, Table table)
+        {
+            Func<string, object> func = GetConverterFuncByName(funcName);
+
+            State.OriginalInstance = table.CreateDynamicInstance(func);
+        }
+
+        [When(@"I create a dynamic instance with delegates (.*) from this table")]
+        public void WhenICreateADynamicInstanceWithDelegatesValueToDecimalValueToStringFromThisTable(string commaSeparatedFuncNames, Table table)
+        {
+            var funcNames = GetNameArray(commaSeparatedFuncNames);
+
+            var convertFuncs = new List<Func<string, object>>();
+
+            foreach (var name in funcNames)
+            {
+                convertFuncs.Add(GetConverterFuncByName(name));
+            }
+
+            State.OriginalInstance = table.CreateDynamicInstance(convertFuncs.ToArray());
+        }
+
+        private string[] GetNameArray(string commaSeparatedNames)
+        {
+            return commaSeparatedNames
+                .Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(n => n.Trim())
+                .ToArray();
+        }
+
+        private static Func<string, object> GetConverterFuncByName(string funcName)
+        {
+            var funcField = typeof(ConverterFuncs).GetField(funcName, BindingFlags.Static | BindingFlags.Public);
+            var func = (Func<string, object>)funcField.GetValue(null);
+            return func;
+        }
+
+        private ITableValueConverter GetTableValueConverterByName(string converterName)
+        {
+            var converterTypeName = converterName + "Converter";
+            var dynamicValueConverterType = ReflectionUtil.GetTypeByName(converterTypeName);
+
+            return (ITableValueConverter)Activator.CreateInstance(dynamicValueConverterType);
+        }
+
+        public static class ConverterFuncs
+        {
+            public static Func<string, object> ValueToString = value => value;
+
+            public static Func<string, object> ValueToDecimal = value =>
+            {
+                decimal decVal;
+                if (Decimal.TryParse(value, out decVal))
+                {
+                    return decVal;
+                }
+
+                return null;
+            };
+
+            public static Func<string, object> ValueToDouble = value =>
+            {
+                double doubleVal;
+                if (Double.TryParse(value, out doubleVal))
+                {
+                    return doubleVal;
+                }
+
+                return null;
+            };
+
+            public static Func<string, object> ValueToInt = value =>
+            {
+                int intVal;
+                if (Int32.TryParse(value, out intVal))
+                {
+                    return intVal;
+                }
+
+                return null;
+            };
+        }
     }
 }

@@ -20,8 +20,8 @@ Scenario: Not matching when 1 header differ
 	   | N      |
 	   | Marcus |
 	Then an instance comparison exception should be thrown with 2 differences
-		And one difference should be on the 'Name' field of the instance
-		And one difference should be on the 'N' column of the table
+		And one difference should be on the Name field of the instance
+		And one difference should be on the N column of the table
 
 Scenario: Not matching when 2 header differ
 	Given I create a dynamic instance from this table
@@ -31,10 +31,10 @@ Scenario: Not matching when 2 header differ
 	   | N      | Date of birth |
 	   | Marcus | 2000-01-01    |
 	Then an instance comparison exception should be thrown with 4 differences
-		And one difference should be on the 'Name' field of the instance
-		And one difference should be on the 'BirthDate' field of the instance
-		And one difference should be on the 'N' column of the table
-		And one difference should be on the 'DateOfBirth' column of the table
+		And one difference should be on the Name field of the instance
+		And one difference should be on the BirthDate field of the instance
+		And one difference should be on the N column of the table
+		And one difference should be on the DateOfBirth column of the table
 
 Scenario: Not matching when 1 value differ
 	Given I create a dynamic instance from this table
@@ -44,9 +44,9 @@ Scenario: Not matching when 1 value differ
 	   | Name   |
 	   | Albert |
 	Then an instance comparison exception should be thrown with 1 difference
-		And one difference should be on the 'Name' property
-		And one message should state that the instance had the value 'Marcus'
-		And one message should state that the table had the value 'Albert'
+		And one difference should be on the Name property
+		And one message should state that the instance had the value Marcus
+		And one message should state that the table had the value Albert
 
 Scenario: Not matching when several value differ
 	Given I create a dynamic instance from this table
@@ -56,6 +56,6 @@ Scenario: Not matching when several value differ
 	   | Name   | Birth date | Length in meters |
 	   | Albert | 2008-01-24 | 1.04             |
 	Then an instance comparison exception should be thrown with 3 difference
-		And one difference should be on the 'Name' property
-		And one difference should be on the 'BirthDate' property
-		And one difference should be on the 'LengthInMeters' property
+		And one difference should be on the Name property
+		And one difference should be on the BirthDate property
+		And one difference should be on the LengthInMeters property

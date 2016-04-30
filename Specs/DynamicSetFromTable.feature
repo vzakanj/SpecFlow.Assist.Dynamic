@@ -11,7 +11,7 @@ Scenario: Create set of dynamic objects
 		| Gustav | 1   | 2010-03-19 | 0.84             |
 		| Arvid  | 1   | 2010-03-19 | 0.85             |
 	Then I should have a list of 4 dynamic objects
-		And the 1 item should have Name equal to 'Marcus'
-		And the 2 item should have Age equal to '3'
-		And the 3 item should have BirthDate equal to '2010-03-19'
-		And the 4 item should have LengthInMeters equal to '0.85'
+		And the 1 item should have property Name of type string equal to Marcus
+		And the 2 item should have property Age of type int equal to 3
+		And the 3 item should have property BirthDate of type DateTime equal to 2010-03-19
+		And the 4 item should have property LengthInMeters of type double equal to 0.85

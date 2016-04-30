@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace SpecFlow.Assist.Dynamic
+﻿namespace SpecFlow.Assist.Dynamic
 {
     /// <summary>
     /// Tries to convert the value to int, otherwise returns null.

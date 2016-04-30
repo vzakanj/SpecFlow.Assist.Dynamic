@@ -32,8 +32,8 @@ namespace Specs
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "ReservedCharsInCSharp", "In order to be able to write more expressive meaningful scenarios\nAs a scenario w" +
-                    "riter\nI want to be able to use any character, including reserved words", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "ReservedCharsInCSharp", "In order to be able to write more expressive meaningful scenarios\r\nAs a scenario " +
+                    "writer\r\nI want to be able to use any character, including reserved words", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -82,7 +82,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 8
     testRunner.When("I create a dynamic instance from this table", ((string)(null)), table1, "When ");
 #line 11
-    testRunner.Then("the CharpNmeWithStrangeChars property should equal \'A value\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("the CharpNmeWithStrangeChars property should be of type string and equal A value", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -106,9 +106,10 @@ this.ScenarioSetup(scenarioInfo);
 #line 16
        testRunner.When("I create a dynamic instance from this table", ((string)(null)), table2, "When ");
 #line 19
-    testRunner.Then("the My_Nice_Variable property should equal \'A value\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("the My_Nice_Variable property should be of type string and equal A value", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 20
-           testRunner.And("the MyVariableNeedsCleanUp property should equal \'Another value\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+           testRunner.And("the MyVariableNeedsCleanUp property should be of type string and equal Another va" +
+                    "lue", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

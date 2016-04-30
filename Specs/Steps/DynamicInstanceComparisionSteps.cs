@@ -2,6 +2,8 @@
 using Should.Fluent;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
+using System.Collections.Generic;
+using Specs.Util;
 
 namespace Specs.Steps
 {
@@ -21,7 +23,8 @@ namespace Specs.Steps
         private static void CheckForOneDifferenceContaingString(string expectedString)
         {
             var ex = GetInstanceComparisonException();
-            ex.Differences.Should().Contain.One(f => f.Contains(expectedString));
+            var diffPropertyString = "'" + expectedString + "'";
+            ex.Differences.Should().Contain.One(f => f.Contains(diffPropertyString));
         }
 
         [When("I compare it to this table")]
@@ -35,6 +38,17 @@ namespace Specs.Steps
             {
                 ScenarioContext.Current.Add(EXCEPTION_KEY, ex);
             }
+        }
+
+        [Then(@"the (.*) property should be of type (.*) and equal (.*)")]
+        public void ThenThePropertyShouldBeOfTypeAndEqual(string propertyName, string propertyTypeName, string propertyValue)
+        {
+            var propertyType = ReflectionUtil.GetTypeByName(propertyTypeName);
+            var instanceDict = State.OriginalInstance as IDictionary<string, object>;
+
+            instanceDict[propertyName].Should().Be.OfType(propertyType);
+
+            Convert.ChangeType(propertyValue, propertyType).Should().Equal(instanceDict[propertyName]);
         }
 
 

@@ -17,7 +17,8 @@ namespace Specs.Steps
         private static void CheckForOneDifferenceContaingString(string expectedString)
         {
             var ex = GetSetComparisonException();
-            ex.Differences.Should().Contain.One(f => f.Contains(expectedString));
+            var diffPropertyString = "'" + expectedString + "'";
+            ex.Differences.Should().Contain.One(f => f.Contains(diffPropertyString));
         }
 
         [When(@"I compare the set to this table")]
@@ -74,7 +75,7 @@ namespace Specs.Steps
             CheckForOneDifferenceContaingString(expectedFieldToDiffer);
         }
 
-        [Then(@"(\d+) difference should be on row (\d+) on property '(.*)' for the values '(.*)' and '(.*)'")]
+        [Then(@"(\d+) difference should be on row (\d+) on property (.*) for the values (.*) and (.*)")]
         public void DifferenceOnValue(int differenceNumber, int rowNumber, string expectedProperty, string instanceValue, string tableRowValue)
         {
             var exception = GetSetComparisonException();

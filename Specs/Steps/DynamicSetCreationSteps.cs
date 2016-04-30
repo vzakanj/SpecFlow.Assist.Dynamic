@@ -1,10 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
 using Should.Fluent;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
+using System.Collections.Generic;
+using Specs.Util;
 
 namespace Specs.Steps
 {
@@ -19,7 +20,7 @@ namespace Specs.Steps
 
         [Given(@"I create a set of dynamic instances from this table")]
         [When(@"I create a set of dynamic instances from this table")]
-        public void WithMethodBInding(Table table)
+        public void WithMethodBinding(Table table)
         {
             State.OriginalSet = table.CreateDynamicSet().ToList();   
         }
@@ -31,28 +32,14 @@ namespace Specs.Steps
             State.OriginalSet.Count.Should().Equal(expectedNumberOfItems);
         }
 
-        [Then(@"the (\d+) item should have BirthDate equal to '(.*)'")]
-        public void ItemInSetShouldHaveExpectedBirthDate(int itemNumber, string expectedBirthDate)
+        [Then(@"the (\d+) item should have property (.*) of type (.*) equal to (.*)")]
+        public void ItemInSetShouldHavePropertyOfTypeEqualTo(int itemNumber, string propertyName, string propertyTypeName, string propertyValue)
         {
-            Assert.AreEqual(DateTime.Parse(expectedBirthDate), GetItem(itemNumber).BirthDate);
-        }
+            var item = GetItem(itemNumber) as IDictionary<string, object>;
+            var propertyType = ReflectionUtil.GetTypeByName(propertyTypeName);
+            var typedPropertyValue = Convert.ChangeType(propertyValue, propertyType);
 
-        [Then(@"the (\d+) item should have Age equal to '(\d+)'")]
-        public void ItemInSetShouldHaveExpectedAge(int itemNumber, int expectedAge)
-        {
-            Assert.AreEqual(expectedAge, GetItem(itemNumber).Age);
-        }
-
-        [Then(@"the (\d+) item should have Name equal to '(.*)'")]
-        public void ItemInSetShouldHaveExpectedName(int itemNumber, string expectedName)
-        {
-            Assert.AreEqual(expectedName, GetItem(itemNumber).Name);
-        }
-
-        [Then(@"the (\d+) item should have LengthInMeters equal to '(\d+\.\d+)'")]
-        public void ItemInSetShouldHaveExpectedLenghtInMeters(int itemNumber, double expectedLengthInMetersItem)
-        {
-            Assert.AreEqual(expectedLengthInMetersItem, GetItem(itemNumber).LengthInMeters);
+            Assert.AreEqual(typedPropertyValue, item[propertyName]);
         }
     }
 }
