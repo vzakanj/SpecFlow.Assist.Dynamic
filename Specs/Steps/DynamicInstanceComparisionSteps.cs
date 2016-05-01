@@ -1,9 +1,6 @@
-﻿using System;
-using Should.Fluent;
+﻿using Should.Fluent;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
-using System.Collections.Generic;
-using Specs.Util;
 
 namespace Specs.Steps
 {
@@ -40,16 +37,6 @@ namespace Specs.Steps
             }
         }
 
-        [Then(@"the (.*) property should be of type (.*) and equal (.*)")]
-        public void ThenThePropertyShouldBeOfTypeAndEqual(string propertyName, string propertyTypeName, string propertyValue)
-        {
-            var propertyType = ReflectionUtil.GetTypeByName(propertyTypeName);
-            var instanceDict = State.OriginalInstance as IDictionary<string, object>;
-
-            instanceDict[propertyName].Should().Be.OfType(propertyType);
-
-            Convert.ChangeType(propertyValue, propertyType).Should().Equal(instanceDict[propertyName]);
-        }
 
         [Then("no instance comparison exception should have been thrown")]
         public void NoException()

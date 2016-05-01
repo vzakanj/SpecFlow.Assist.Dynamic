@@ -1,10 +1,32 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
+using System.Reflection;
 
-namespace Specs.Data
+namespace Specs.Util
 {
-    public static class ConversionDelegates
+    public static class ConversionDelegateUtil
     {
+        public static Func<string, object> GetConversionDelegateByName(string delegateName)
+        {
+            var funcField = typeof(ConversionDelegateUtil).GetField(delegateName, BindingFlags.Static | BindingFlags.Public);
+            var func = (Func<string, object>)funcField.GetValue(null);
+            return func;
+        }
+
+        public static Func<string, object>[] GetConversionDelegatesByNames(string commaSeparatedNames)
+        {
+            var delegateNames = StringUtil.GetNames(commaSeparatedNames);
+            var delegates = new List<Func<string, object>>();
+
+            foreach (var name in delegateNames)
+            {
+                delegates.Add(GetConversionDelegateByName(name));
+            }
+
+            return delegates.ToArray();
+        }
+
         public static Func<string, object> ValueToString = value => value;
 
         public static Func<string, object> ValueToDateTime = value =>
@@ -63,5 +85,8 @@ namespace Specs.Data
 
             return null;
         };
+
     }
+
+
 }

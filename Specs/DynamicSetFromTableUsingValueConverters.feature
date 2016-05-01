@@ -1,4 +1,4 @@
-﻿Feature: Create dynamic sets objects from SpecFlow table using value converters
+﻿Feature: Create dynamic set from SpecFlow table using value converters
 	In order to write only code that matters
 	As a SpecFlow developer
 	I want SpecFlow to create set of dynamic objects from a table row using value converters

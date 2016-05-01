@@ -33,7 +33,7 @@ namespace Specs
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Create dynamic objects from SpecFlow table using value converters", "In order to write only code that matters\r\nAs a SpecFlow developer\r\nI want SpecFlo" +
-                    "w to create dynamic objects from a table row using specified value converters", ProgrammingLanguage.CSharp, ((string[])(null)));
+                    "w to create dynamic objects from a table row using value converters", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         

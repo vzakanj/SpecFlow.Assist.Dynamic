@@ -19,20 +19,20 @@ namespace Specs
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.9.0.77")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Create dynamic sets objects from SpecFlow table using delegates")]
-    public partial class CreateDynamicSetsObjectsFromSpecFlowTableUsingDelegatesFeature
+    [NUnit.Framework.DescriptionAttribute("Create dynamic set from SpecFlow table using delegates")]
+    public partial class CreateDynamicSetFromSpecFlowTableUsingDelegatesFeature
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "DynamicScetFromTableUsingDelegates.feature"
+#line 1 "DynamicSetFromTableUsingDelegates.feature"
 #line hidden
         
         [NUnit.Framework.TestFixtureSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Create dynamic sets objects from SpecFlow table using delegates", "In order to write only code that matters\r\nAs a SpecFlow developer\r\nI want SpecFlo" +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Create dynamic set from SpecFlow table using delegates", "In order to write only code that matters\r\nAs a SpecFlow developer\r\nI want SpecFlo" +
                     "w to create set of dynamic objects from a table row using conversion delegates", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }

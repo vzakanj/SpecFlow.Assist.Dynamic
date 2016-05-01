@@ -1,7 +1,7 @@
 ﻿Feature: Create dynamic objects from SpecFlow table using value converters
 	In order to write only code that matters
 	As a SpecFlow developer
-	I want SpecFlow to create dynamic objects from a table row using specified value converters
+	I want SpecFlow to create dynamic objects from a table row using value converters
 
 Scenario: Create dynamic instance from table with one row using ValueToString converter
 	When I create a dynamic instance with only ValueToString converter from this table

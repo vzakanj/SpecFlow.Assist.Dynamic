@@ -68,7 +68,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ComparingDynamicSets.feature</DependentUpon>
     </Compile>
-    <Compile Include="Data\ConversionDelegates.cs" />
     <Compile Include="CreateDynamicSetsAndInstancesWithStepArgumentTransformation.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -84,18 +83,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DynamicInstancesFromTableUsingValueConverters.feature</DependentUpon>
     </Compile>
-    <Compile Include="DynamicScetFromTableUsingDelegates.feature.cs">
+    <Compile Include="DynamicSetFromTableUsingDelegates.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DynamicScetFromTableUsingDelegates.feature</DependentUpon>
+      <DependentUpon>DynamicSetFromTableUsingDelegates.feature</DependentUpon>
     </Compile>
     <Compile Include="DynamicSetFromTableUsingValueConverters.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DynamicSetFromTableUsingValueConverters.feature</DependentUpon>
     </Compile>
-    <Compile Include="Steps\SharedScenarioSteps.cs" />
+    <Compile Include="Steps\PropertyCheckingSteps.cs" />
+    <Compile Include="Util\ConversionDelegateUtil.cs" />
     <Compile Include="Util\ReflectionUtil.cs" />
+    <Compile Include="Util\StringUtil.cs" />
+    <Compile Include="Util\ValueConverterUtil.cs" />
     <Compile Include="ValueConversionsUsingDelegates.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -160,9 +162,9 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>DynamicInstancesFromTableUsingValueConverters.feature.cs</LastGenOutput>
     </None>
-    <None Include="DynamicScetFromTableUsingDelegates.feature">
+    <None Include="DynamicSetFromTableUsingDelegates.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>DynamicScetFromTableUsingDelegates.feature.cs</LastGenOutput>
+      <LastGenOutput>DynamicSetFromTableUsingDelegates.feature.cs</LastGenOutput>
     </None>
     <None Include="DynamicSetFromTableUsingValueConverters.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
