@@ -24,7 +24,6 @@ namespace Specs.Steps
         {
             State.OriginalSet = table.CreateDynamicSet().ToList();   
         }
-        
 
         [Then(@"I should have a list of (\d+) dynamic objects")]
         public void ShouldContain(int expectedNumberOfItems)

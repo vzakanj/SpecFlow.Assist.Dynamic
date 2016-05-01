@@ -68,6 +68,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ComparingDynamicSets.feature</DependentUpon>
     </Compile>
+    <Compile Include="Data\ConversionDelegates.cs" />
     <Compile Include="CreateDynamicSetsAndInstancesWithStepArgumentTransformation.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -83,6 +84,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DynamicInstancesFromTableUsingValueConverters.feature</DependentUpon>
     </Compile>
+    <Compile Include="DynamicScetFromTableUsingDelegates.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DynamicScetFromTableUsingDelegates.feature</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicSetFromTableUsingValueConverters.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DynamicSetFromTableUsingValueConverters.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Steps\SharedScenarioSteps.cs" />
     <Compile Include="Util\ReflectionUtil.cs" />
     <Compile Include="ValueConversionsUsingDelegates.feature.cs">
       <AutoGen>True</AutoGen>
@@ -147,6 +159,14 @@
     <None Include="DynamicInstancesFromTableUsingValueConverters.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>DynamicInstancesFromTableUsingValueConverters.feature.cs</LastGenOutput>
+    </None>
+    <None Include="DynamicScetFromTableUsingDelegates.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>DynamicScetFromTableUsingDelegates.feature.cs</LastGenOutput>
+    </None>
+    <None Include="DynamicSetFromTableUsingValueConverters.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>DynamicSetFromTableUsingValueConverters.feature.cs</LastGenOutput>
     </None>
     <None Include="ValueConversionsUsingValueConverters.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

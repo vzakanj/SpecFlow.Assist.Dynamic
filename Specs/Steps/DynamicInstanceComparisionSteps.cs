@@ -51,8 +51,6 @@ namespace Specs.Steps
             Convert.ChangeType(propertyValue, propertyType).Should().Equal(instanceDict[propertyName]);
         }
 
-
-
         [Then("no instance comparison exception should have been thrown")]
         public void NoException()
         {

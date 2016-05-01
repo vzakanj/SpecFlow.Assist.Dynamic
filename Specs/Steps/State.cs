@@ -21,11 +21,11 @@ namespace Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current["OrginalSet"] as IList<dynamic>;
+                return ScenarioContext.Current["OriginalSet"] as IList<dynamic>;
             }
             set
             {
-                ScenarioContext.Current.Add("OrginalSet", value);
+                ScenarioContext.Current.Add("OriginalSet", value);
             }
         }
     }
