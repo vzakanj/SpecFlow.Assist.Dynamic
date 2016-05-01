@@ -94,6 +94,7 @@
       <DependentUpon>DynamicSetFromTableUsingValueConverters.feature</DependentUpon>
     </Compile>
     <Compile Include="Steps\PropertyCheckingSteps.cs" />
+    <Compile Include="Steps\FeatureBackgroundSteps.cs" />
     <Compile Include="Util\ConversionDelegateUtil.cs" />
     <Compile Include="Util\ReflectionUtil.cs" />
     <Compile Include="Util\StringUtil.cs" />

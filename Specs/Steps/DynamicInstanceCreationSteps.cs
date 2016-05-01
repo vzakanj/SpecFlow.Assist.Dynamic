@@ -8,7 +8,7 @@ using Specs.Util;
 namespace Specs.Steps
 {
     [Binding]
-    public class DynamicInstanceCreationSteps
+    public class DynamicInstanceCreationSteps : TechTalk.SpecFlow.Steps
     {
 
         [Given(@"I create a dynamic instance from this table")]
@@ -18,42 +18,77 @@ namespace Specs.Steps
             State.OriginalInstance = table.CreateDynamicInstance();
         }
 
-        [When(@"I create a dynamic instance with only (.*) delegate from this table")]
-        public void WhenICreateADynamicInstanceWithOnlyDelegateFromThisTable(string delegateName, Table table)
+        [When(@"I create a dynamic instance using (.*) delegate from table (.*)")]
+        public void WhenICreateADynamicInstanceUsingDelegateFromTable(string delegateName, string tableName)
+        {
+            var table = State.GetTable(tableName);
+            When(String.Format("I create a dynamic instance using {0} delegate from this table", delegateName), table);
+        }
+
+        [When(@"I create a dynamic instance using (.*) delegate from this table")]
+        public void WhenICreateADynamicInstanceUsingDelegateFromThisTable(string delegateName, Table table)
         {
             Func<string, object> func = ConversionDelegateUtil.GetConversionDelegateByName(delegateName);
             State.OriginalInstance = table.CreateDynamicInstance(func);
         }
 
-        [When(@"I create a dynamic instance with delegates (.*) from this table")]
-        public void WhenICreateADynamicInstanceWithDelegatesFromThisTable(string commaSeparatedDelegateNames, Table table)
+        [When(@"I create a dynamic instance using delegates (.*) from table (.*)")]
+        public void WhenICreateADynamicInstanceUsingDelegatesFromThisTable(string commaSeparatedDelegateNames, string tableName)
+        {
+            var table = State.GetTable(tableName);
+            When(String.Format("I create a dynamic instance using delegates {0} from this table", commaSeparatedDelegateNames), table);
+        }
+
+        [When(@"I create a dynamic instance using delegates (.*) from this table")]
+        public void WhenICreateADynamicInstanceUsingDelegatesFromThisTable(string commaSeparatedDelegateNames, Table table)
         {
             var conversionDelegates = ConversionDelegateUtil.GetConversionDelegatesByNames(commaSeparatedDelegateNames);
             State.OriginalInstance = table.CreateDynamicInstance(conversionDelegates);
         }
 
-        [When(@"I create a dynamic instance with only (.*) converter from this table")]
-        public void WhenICreateADynamicInstanceWithOnlyConverterFromThisTable(string converterName, Table table)
+        [When(@"I create a dynamic instance using (.*) converter from table (.*)")]
+        public void WhenICreateADynamicInstanceUsingConverterFromThisTable(string converterName, string tableName)
+        {
+            var table = State.GetTable(tableName);
+            When(String.Format("I create a dynamic instance using {0} converter from this table", converterName), table);
+        }
+
+        [When(@"I create a dynamic instance using (.*) converter from this table")]
+        public void WhenICreateADynamicInstanceUsingConverterFromThisTable(string converterName, Table table)
         {
             var converter = ValueConverterUtil.GetValueConverterByName(converterName);
             State.OriginalInstance = table.CreateDynamicInstance(converter);
         }
 
-        [When(@"I create a dynamic instance with converters (.*) from this table")]
-        public void WhenICreateADynamicInstanceWithConvertersFromThisTable(string commaSeparatedConverterNames, Table table)
+        [When(@"I create a dynamic instance using converters (.*) from table (.*)")]
+        public void WhenICreateADynamicInstanceUsingConvertersFromThisTable(string commaSeparatedConverterNames, string tableName)
+        {
+            var table = State.GetTable(tableName);
+            When(String.Format("I create a dynamic instance using converters {0} from this table", commaSeparatedConverterNames), table);
+        }
+
+        [When(@"I create a dynamic instance using converters (.*) from this table")]
+        public void WhenICreateADynamicInstanceUsingConvertersFromThisTable(string commaSeparatedConverterNames, Table table)
         {
             var converters = ValueConverterUtil.GetValueConvertersByNames(commaSeparatedConverterNames);
             State.OriginalInstance = table.CreateDynamicInstance(converters);
         }
 
-        [When(@"I create a dynamic instance with only ValueToDateTime delegate using date format dd/MM/yyyy from this table")]
-        public void WhenICreateADynamicInstanceWithOnlyValueToDateTimeDelegateUsingDateFormatDdMMYyyyFromThisTable(Table table)
+        [When(@"I create a dynamic instance using ValueToDateTime delegate using date format dd/MM/yyyy from this table")]
+        public void WhenICreateADynamicInstanceUsingValueToDateTimeDelegateUsingDateFormatDdMMYyyyFromThisTable(Table table)
         {
             State.OriginalInstance = table.CreateDynamicInstance(ConversionDelegateUtil.ValueToDateTime_ddMMyyyy);
         }
 
-        [When(@"I create a dynamic instance with only ValueToDateTime converter using date format (.*) from this table")]
-        public void WhenICreateADynamicInstanceWithOnlyValueToDateTimeConverterUsingDateFormatFromThisTable(string dateFormat, Table table)
+        [When(@"I create a dynamic instance using ValueToDateTime delegate using date format dd/MM/yyyy from table (.*)")]
+        public void WhenICreateADynamicInstanceUsingValueToDateTimeDelegateUsingDateFormatDdMMYyyyFromTable(string tableName)
+        {
+            var table = State.GetTable(tableName);
+            When("I create a dynamic instance using ValueToDateTime delegate with date format dd/MM/yyyy from this table", table);
+        }
+
+        [When(@"I create a dynamic instance using ValueToDateTime converter with date format (.*) from this table")]
+        public void WhenICreateADynamicInstanceWithValueToDateTimeConverterUsingDateFormatFromThisTable(string dateFormat, Table table)
         {
             var converter = new ValueToDateTimeConverter(dateFormat);
             State.OriginalInstance = table.CreateDynamicInstance(converter);

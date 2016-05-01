@@ -65,13 +65,9 @@ namespace Specs
             testRunner.CollectScenarioErrors();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Create set of dynamic objects using ValueToString delegate")]
-        public virtual void CreateSetOfDynamicObjectsUsingValueToStringDelegate()
+        public virtual void FeatureBackground()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create set of dynamic objects using ValueToString delegate", ((string[])(null)));
 #line 6
-this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "Name",
@@ -99,17 +95,31 @@ this.ScenarioSetup(scenarioInfo);
                         "2010-03-19",
                         "0.85"});
 #line 7
- testRunner.When("I create a set of dynamic instances using only ValueToString delegate from this t" +
-                    "able", ((string)(null)), table1, "When ");
-#line 13
- testRunner.Then("I should have a list of 4 dynamic objects", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Given("a table People", ((string)(null)), table1, "Given ");
+#line hidden
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Create set of dynamic objects using ValueToString delegate")]
+        public virtual void CreateSetOfDynamicObjectsUsingValueToStringDelegate()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create set of dynamic objects using ValueToString delegate", ((string[])(null)));
 #line 14
-  testRunner.And("the 1 item should have property Name of type string equal to Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
 #line 15
-  testRunner.And("the 2 item should have property Age of type string equal to 3", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When("I create a set of dynamic instances using ValueToString delegate from table Peopl" +
+                    "e", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 16
-  testRunner.And("the 3 item should have property BirthDate of type string equal to 2010-03-19", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Then("I should have a list of 4 dynamic objects", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 17
+  testRunner.And("the 1 item should have property Name of type string equal to Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 18
+  testRunner.And("the 2 item should have property Age of type string equal to 3", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 19
+  testRunner.And("the 3 item should have property BirthDate of type string equal to 2010-03-19", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 20
   testRunner.And("the 4 item should have property LengthInMeters of type string equal to 0.85", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -120,46 +130,22 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void CreateSetOfDynamicObjectsUsingValueToDoubleDelegate()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create set of dynamic objects using ValueToDouble delegate", ((string[])(null)));
-#line 19
+#line 22
 this.ScenarioSetup(scenarioInfo);
-#line hidden
-            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Name",
-                        "Age",
-                        "Birth date",
-                        "Length in meters"});
-            table2.AddRow(new string[] {
-                        "Marcus",
-                        "39",
-                        "1972-10-09",
-                        "1.96"});
-            table2.AddRow(new string[] {
-                        "Albert",
-                        "3",
-                        "2008-01-24",
-                        "1.03"});
-            table2.AddRow(new string[] {
-                        "Gustav",
-                        "1",
-                        "2010-03-19",
-                        "0.84"});
-            table2.AddRow(new string[] {
-                        "Arvid",
-                        "1",
-                        "2010-03-19",
-                        "0.85"});
-#line 20
- testRunner.When("I create a set of dynamic instances using only ValueToDouble delegate from this t" +
-                    "able", ((string)(null)), table2, "When ");
-#line 26
+#line 6
+this.FeatureBackground();
+#line 23
+ testRunner.When("I create a set of dynamic instances using ValueToDouble delegate from table Peopl" +
+                    "e", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 24
  testRunner.Then("I should have a list of 4 dynamic objects", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 27
+#line 25
   testRunner.And("the 1 item should have property Name of type string equal to Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 28
+#line 26
   testRunner.And("the 2 item should have property Age of type double equal to 3.00", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 29
+#line 27
   testRunner.And("the 3 item should have property BirthDate of type DateTime equal to 2010-03-19", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 30
+#line 28
   testRunner.And("the 4 item should have property LengthInMeters of type double equal to 0.85", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -170,46 +156,22 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void CreateSetOfDynamicObjectsUsingValueToDecimalDelegate()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create set of dynamic objects using ValueToDecimal delegate", ((string[])(null)));
-#line 32
+#line 30
 this.ScenarioSetup(scenarioInfo);
-#line hidden
-            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Name",
-                        "Age",
-                        "Birth date",
-                        "Length in meters"});
-            table3.AddRow(new string[] {
-                        "Marcus",
-                        "39",
-                        "1972-10-09",
-                        "1.96"});
-            table3.AddRow(new string[] {
-                        "Albert",
-                        "3",
-                        "2008-01-24",
-                        "1.03"});
-            table3.AddRow(new string[] {
-                        "Gustav",
-                        "1",
-                        "2010-03-19",
-                        "0.84"});
-            table3.AddRow(new string[] {
-                        "Arvid",
-                        "1",
-                        "2010-03-19",
-                        "0.85"});
-#line 33
- testRunner.When("I create a set of dynamic instances using only ValueToDecimal delegate from this " +
-                    "table", ((string)(null)), table3, "When ");
-#line 39
+#line 6
+this.FeatureBackground();
+#line 31
+ testRunner.When("I create a set of dynamic instances using ValueToDecimal delegate from table Peop" +
+                    "le", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 32
  testRunner.Then("I should have a list of 4 dynamic objects", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 40
+#line 33
   testRunner.And("the 1 item should have property Name of type string equal to Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 41
+#line 34
   testRunner.And("the 2 item should have property Age of type decimal equal to 3.00", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 42
+#line 35
   testRunner.And("the 3 item should have property BirthDate of type DateTime equal to 2010-03-19", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 43
+#line 36
   testRunner.And("the 4 item should have property LengthInMeters of type decimal equal to 0.85", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -220,46 +182,21 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void CreateSetOfDynamicObjectsUsingValueToIntDelegate()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create set of dynamic objects using ValueToInt delegate", ((string[])(null)));
-#line 45
+#line 38
 this.ScenarioSetup(scenarioInfo);
-#line hidden
-            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Name",
-                        "Age",
-                        "Birth date",
-                        "Length in meters"});
-            table4.AddRow(new string[] {
-                        "Marcus",
-                        "39",
-                        "1972-10-09",
-                        "1.96"});
-            table4.AddRow(new string[] {
-                        "Albert",
-                        "3",
-                        "2008-01-24",
-                        "1.03"});
-            table4.AddRow(new string[] {
-                        "Gustav",
-                        "1",
-                        "2010-03-19",
-                        "0.84"});
-            table4.AddRow(new string[] {
-                        "Arvid",
-                        "1",
-                        "2010-03-19",
-                        "0.85"});
-#line 46
- testRunner.When("I create a set of dynamic instances using only ValueToInt delegate from this tabl" +
-                    "e", ((string)(null)), table4, "When ");
-#line 52
+#line 6
+this.FeatureBackground();
+#line 39
+ testRunner.When("I create a set of dynamic instances using ValueToInt delegate from table People", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 40
  testRunner.Then("I should have a list of 4 dynamic objects", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 53
+#line 41
   testRunner.And("the 1 item should have property Name of type string equal to Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 54
+#line 42
   testRunner.And("the 2 item should have property Age of type int equal to 3", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 55
+#line 43
   testRunner.And("the 3 item should have property BirthDate of type DateTime equal to 2010-03-19", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 56
+#line 44
   testRunner.And("the 4 item should have property LengthInMeters of type double equal to 0.85", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -270,46 +207,22 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void CreateSetOfDynamicObjectsUsingValueToDateTimeDelegate()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create set of dynamic objects using ValueToDateTime delegate", ((string[])(null)));
-#line 58
+#line 46
 this.ScenarioSetup(scenarioInfo);
-#line hidden
-            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Name",
-                        "Age",
-                        "Birth date",
-                        "Length in meters"});
-            table5.AddRow(new string[] {
-                        "Marcus",
-                        "39",
-                        "1972-10-09",
-                        "1.96"});
-            table5.AddRow(new string[] {
-                        "Albert",
-                        "3",
-                        "2008-01-24",
-                        "1.03"});
-            table5.AddRow(new string[] {
-                        "Gustav",
-                        "1",
-                        "2010-03-19",
-                        "0.84"});
-            table5.AddRow(new string[] {
-                        "Arvid",
-                        "1",
-                        "2010-03-19",
-                        "0.85"});
-#line 59
- testRunner.When("I create a set of dynamic instances using only ValueToDateTime delegate from this" +
-                    " table", ((string)(null)), table5, "When ");
-#line 65
+#line 6
+this.FeatureBackground();
+#line 47
+ testRunner.When("I create a set of dynamic instances using ValueToDateTime delegate from table Peo" +
+                    "ple", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 48
  testRunner.Then("I should have a list of 4 dynamic objects", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 66
+#line 49
   testRunner.And("the 1 item should have property Name of type string equal to Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 67
+#line 50
   testRunner.And("the 2 item should have property Age of type double equal to 3.00", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 68
+#line 51
   testRunner.And("the 3 item should have property BirthDate of type DateTime equal to 2010-03-19", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 69
+#line 52
   testRunner.And("the 4 item should have property LengthInMeters of type double equal to 0.85", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -322,46 +235,48 @@ this.ScenarioSetup(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create set of dynamic objects using ValueToDateTime delegate with date format dd/" +
                     "MM/yyyy", ((string[])(null)));
-#line 71
+#line 54
 this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
 #line hidden
-            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                         "Name",
                         "Age",
                         "Birth date",
                         "Length in meters"});
-            table6.AddRow(new string[] {
+            table2.AddRow(new string[] {
                         "Marcus",
                         "39",
                         "09/10/1972",
                         "1.96"});
-            table6.AddRow(new string[] {
+            table2.AddRow(new string[] {
                         "Albert",
                         "3",
                         "24/01/2008",
                         "1.03"});
-            table6.AddRow(new string[] {
+            table2.AddRow(new string[] {
                         "Gustav",
                         "1",
                         "19/03/2010",
                         "0.84"});
-            table6.AddRow(new string[] {
+            table2.AddRow(new string[] {
                         "Arvid",
                         "1",
                         "19/03/2010",
                         "0.85"});
-#line 72
- testRunner.When("I create a set of dynamic instances using only ValueToDateTime delegate with date" +
-                    " format dd/MM/yyyy from this table", ((string)(null)), table6, "When ");
-#line 78
+#line 55
+ testRunner.When("I create a set of dynamic instances using ValueToDateTime delegate with date form" +
+                    "at dd/MM/yyyy from this table", ((string)(null)), table2, "When ");
+#line 61
  testRunner.Then("I should have a list of 4 dynamic objects", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 79
+#line 62
   testRunner.And("the 1 item should have property Name of type string equal to Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 80
+#line 63
   testRunner.And("the 2 item should have property Age of type double equal to 3.00", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 81
+#line 64
   testRunner.And("the 3 item should have property BirthDate of type DateTime equal to 2010-03-19", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 82
+#line 65
   testRunner.And("the 4 item should have property LengthInMeters of type double equal to 0.85", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -372,46 +287,22 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void CreateSetOfDynamicObjectsUsingValueToDecimalAndValueToStringDelegates()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create set of dynamic objects using ValueToDecimal and ValueToString delegates", ((string[])(null)));
-#line 84
+#line 67
 this.ScenarioSetup(scenarioInfo);
-#line hidden
-            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Name",
-                        "Age",
-                        "Birth date",
-                        "Length in meters"});
-            table7.AddRow(new string[] {
-                        "Marcus",
-                        "39",
-                        "1972-10-09",
-                        "1.96"});
-            table7.AddRow(new string[] {
-                        "Albert",
-                        "3",
-                        "2008-01-24",
-                        "1.03"});
-            table7.AddRow(new string[] {
-                        "Gustav",
-                        "1",
-                        "2010-03-19",
-                        "0.84"});
-            table7.AddRow(new string[] {
-                        "Arvid",
-                        "1",
-                        "2010-03-19",
-                        "0.85"});
-#line 85
+#line 6
+this.FeatureBackground();
+#line 68
  testRunner.When("I create a set of dynamic instances using delegates ValueToDecimal, ValueToString" +
-                    " from this table", ((string)(null)), table7, "When ");
-#line 91
+                    " from table People", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 69
  testRunner.Then("I should have a list of 4 dynamic objects", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 92
+#line 70
   testRunner.And("the 1 item should have property Name of type string equal to Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 93
+#line 71
   testRunner.And("the 2 item should have property Age of type decimal equal to 3.00", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 94
+#line 72
   testRunner.And("the 3 item should have property BirthDate of type string equal to 2010-03-19", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 95
+#line 73
   testRunner.And("the 4 item should have property LengthInMeters of type decimal equal to 0.85", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();

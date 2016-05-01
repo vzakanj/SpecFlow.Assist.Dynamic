@@ -9,11 +9,11 @@ namespace Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current["OrginalInstance"];
+                return ScenarioContext.Current["OriginalInstance"];
             }
             set
             {
-                ScenarioContext.Current.Add("OrginalInstance", value);
+                ScenarioContext.Current.Add("OriginalInstance", value);
             }
         }
 
@@ -28,5 +28,17 @@ namespace Specs.Steps
                 ScenarioContext.Current.Add("OriginalSet", value);
             }
         }
+
+        public static Table GetTable(string tableName)
+        {
+            return ScenarioContext.Current.Get<Table>("Table-" + tableName);
+        }
+
+        public static void SetTable(string tableName, Table table)
+        {
+            ScenarioContext.Current.Set(table, "Table-" + tableName);
+        }
+
+
     }
 }

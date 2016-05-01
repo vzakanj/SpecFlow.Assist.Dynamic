@@ -65,13 +65,9 @@ namespace Specs
             testRunner.CollectScenarioErrors();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Create dynamic instance from table with one row using ValueToString delegate")]
-        public virtual void CreateDynamicInstanceFromTableWithOneRowUsingValueToStringDelegate()
+        public virtual void FeatureBackground()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create dynamic instance from table with one row using ValueToString delegate", ((string[])(null)));
 #line 6
-this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "Name",
@@ -84,28 +80,7 @@ this.ScenarioSetup(scenarioInfo);
                         "1972-10-09",
                         "1.96"});
 #line 7
- testRunner.When("I create a dynamic instance with only ValueToString delegate from this table", ((string)(null)), table1, "When ");
-#line 10
- testRunner.Then("the Name property should be of type string and equal Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 11
-  testRunner.And("the Age property should be of type string and equal 39", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 12
-  testRunner.And("the BirthDate property should be of type string and equal 1972-10-09", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 13
-  testRunner.And("the LengthInMeters property should be of type string and equal 1.96", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Create dynamic instance from table with one row and 2 columns using ValueToString" +
-            " delegate")]
-        public virtual void CreateDynamicInstanceFromTableWithOneRowAnd2ColumnsUsingValueToStringDelegate()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create dynamic instance from table with one row and 2 columns using ValueToString" +
-                    " delegate", ((string[])(null)));
-#line 15
-this.ScenarioSetup(scenarioInfo);
+ testRunner.Given("a table MarcusOneRow", ((string)(null)), table1, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                         "Name",
@@ -113,25 +88,8 @@ this.ScenarioSetup(scenarioInfo);
             table2.AddRow(new string[] {
                         "Marcus",
                         "39"});
-#line 16
- testRunner.When("I create a dynamic instance with only ValueToString delegate from this table", ((string)(null)), table2, "When ");
-#line 19
- testRunner.Then("the Name property should be of type string and equal Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 20
-  testRunner.And("the Age property should be of type string and equal 39", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Create dynamic instance from table with Field and Values using ValueToString dele" +
-            "gate")]
-        public virtual void CreateDynamicInstanceFromTableWithFieldAndValuesUsingValueToStringDelegate()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create dynamic instance from table with Field and Values using ValueToString dele" +
-                    "gate", ((string[])(null)));
-#line 22
-this.ScenarioSetup(scenarioInfo);
+#line 10
+ testRunner.And("a table MarcusTwoColumns", ((string)(null)), table2, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                         "Field",
@@ -148,15 +106,76 @@ this.ScenarioSetup(scenarioInfo);
             table3.AddRow(new string[] {
                         "Length in meters",
                         "1.96"});
+#line 13
+ testRunner.And("a table Marcus", ((string)(null)), table3, "And ");
+#line hidden
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Create dynamic instance from table with one row using ValueToString delegate")]
+        public virtual void CreateDynamicInstanceFromTableWithOneRowUsingValueToStringDelegate()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create dynamic instance from table with one row using ValueToString delegate", ((string[])(null)));
+#line 20
+this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
+#line 21
+ testRunner.When("I create a dynamic instance using ValueToString delegate from table MarcusOneRow", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 22
+ testRunner.Then("the Name property should be of type string and equal Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 23
- testRunner.When("I create a dynamic instance with only ValueToString delegate from this table", ((string)(null)), table3, "When ");
+  testRunner.And("the Age property should be of type string and equal 39", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 24
+  testRunner.And("the BirthDate property should be of type string and equal 1972-10-09", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 25
+  testRunner.And("the LengthInMeters property should be of type string and equal 1.96", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Create dynamic instance from table with one row and 2 columns using ValueToString" +
+            " delegate")]
+        public virtual void CreateDynamicInstanceFromTableWithOneRowAnd2ColumnsUsingValueToStringDelegate()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create dynamic instance from table with one row and 2 columns using ValueToString" +
+                    " delegate", ((string[])(null)));
+#line 27
+this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
+#line 28
+ testRunner.When("I create a dynamic instance using ValueToString delegate from table MarcusTwoColu" +
+                    "mns", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 29
  testRunner.Then("the Name property should be of type string and equal Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 30
   testRunner.And("the Age property should be of type string and equal 39", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 31
-  testRunner.And("the BirthDate property should be of type string and equal 1972-10-09", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Create dynamic instance from table with Field and Values using ValueToString dele" +
+            "gate")]
+        public virtual void CreateDynamicInstanceFromTableWithFieldAndValuesUsingValueToStringDelegate()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create dynamic instance from table with Field and Values using ValueToString dele" +
+                    "gate", ((string[])(null)));
 #line 32
+this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
+#line 33
+ testRunner.When("I create a dynamic instance using ValueToString delegate from table Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 34
+ testRunner.Then("the Name property should be of type string and equal Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 35
+  testRunner.And("the Age property should be of type string and equal 39", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 36
+  testRunner.And("the BirthDate property should be of type string and equal 1972-10-09", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 37
   testRunner.And("the LengthInMeters property should be of type string and equal 1.96", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -167,28 +186,19 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void CreateDynamicInstanceFromTableWithOneRowUsingValueToDoubleDelegate()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create dynamic instance from table with one row using ValueToDouble delegate", ((string[])(null)));
-#line 34
-this.ScenarioSetup(scenarioInfo);
-#line hidden
-            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Name",
-                        "Age",
-                        "Birth date",
-                        "Length in meters"});
-            table4.AddRow(new string[] {
-                        "Marcus",
-                        "39",
-                        "1972-10-09",
-                        "1.96"});
-#line 35
- testRunner.When("I create a dynamic instance with only ValueToDouble delegate from this table", ((string)(null)), table4, "When ");
-#line 38
- testRunner.Then("the Name property should be of type string and equal Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 39
-  testRunner.And("the Age property should be of type double and equal 39.00", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
 #line 40
-  testRunner.And("the BirthDate property should be of type DateTime and equal 1972-10-09", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When("I create a dynamic instance using ValueToDouble delegate from table MarcusOneRow", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 41
+ testRunner.Then("the Name property should be of type string and equal Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 42
+  testRunner.And("the Age property should be of type double and equal 39.00", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 43
+  testRunner.And("the BirthDate property should be of type DateTime and equal 1972-10-09", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 44
   testRunner.And("the LengthInMeters property should be of type double and equal 1.96", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -201,20 +211,16 @@ this.ScenarioSetup(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create dynamic instance from table with one row and 2 columns using ValueToDouble" +
                     " delegate", ((string[])(null)));
-#line 43
+#line 46
 this.ScenarioSetup(scenarioInfo);
-#line hidden
-            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Name",
-                        "Age"});
-            table5.AddRow(new string[] {
-                        "Marcus",
-                        "39"});
-#line 44
- testRunner.When("I create a dynamic instance with only ValueToDouble delegate from this table", ((string)(null)), table5, "When ");
+#line 6
+this.FeatureBackground();
 #line 47
- testRunner.Then("the Name property should be of type string and equal Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("I create a dynamic instance using ValueToDouble delegate from table MarcusTwoColu" +
+                    "mns", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 48
+ testRunner.Then("the Name property should be of type string and equal Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 49
   testRunner.And("the Age property should be of type double and equal 39.00", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -227,33 +233,19 @@ this.ScenarioSetup(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create dynamic instance from table with Field and Values using ValueToDouble dele" +
                     "gate", ((string[])(null)));
-#line 50
-this.ScenarioSetup(scenarioInfo);
-#line hidden
-            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Field",
-                        "Value"});
-            table6.AddRow(new string[] {
-                        "Name",
-                        "Marcus"});
-            table6.AddRow(new string[] {
-                        "Age",
-                        "39"});
-            table6.AddRow(new string[] {
-                        "Birth date",
-                        "1972-10-09"});
-            table6.AddRow(new string[] {
-                        "Length in meters",
-                        "1.96"});
 #line 51
- testRunner.When("I create a dynamic instance with only ValueToDouble delegate from this table", ((string)(null)), table6, "When ");
-#line 57
+this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
+#line 52
+ testRunner.When("I create a dynamic instance using ValueToDouble delegate from table Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 53
  testRunner.Then("the Name property should be of type string and equal Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 58
+#line 54
   testRunner.And("the Age property should be of type double and equal 39.00", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 59
+#line 55
   testRunner.And("the BirthDate property should be of type DateTime and equal 1972-10-09", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 60
+#line 56
   testRunner.And("the LengthInMeters property should be of type double and equal 1.96", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -264,28 +256,20 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void CreateDynamicInstanceFromTableWithOneRowUsingValueToDecimalDelegate()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create dynamic instance from table with one row using ValueToDecimal delegate", ((string[])(null)));
-#line 62
+#line 58
 this.ScenarioSetup(scenarioInfo);
-#line hidden
-            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Name",
-                        "Age",
-                        "Birth date",
-                        "Length in meters"});
-            table7.AddRow(new string[] {
-                        "Marcus",
-                        "39",
-                        "1972-10-09",
-                        "1.96"});
-#line 63
- testRunner.When("I create a dynamic instance with only ValueToDecimal delegate from this table", ((string)(null)), table7, "When ");
-#line 66
+#line 6
+this.FeatureBackground();
+#line 59
+ testRunner.When("I create a dynamic instance using ValueToDecimal delegate from table MarcusOneRow" +
+                    "", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 60
  testRunner.Then("the Name property should be of type string and equal Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 67
+#line 61
   testRunner.And("the Age property should be of type decimal and equal 39.00", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 68
+#line 62
   testRunner.And("the BirthDate property should be of type DateTime and equal 1972-10-09", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 69
+#line 63
   testRunner.And("the LengthInMeters property should be of type decimal and equal 1.96", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -298,20 +282,16 @@ this.ScenarioSetup(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create dynamic instance from table with one row and 2 columns using ValueToDecima" +
                     "l delegate", ((string[])(null)));
-#line 71
+#line 65
 this.ScenarioSetup(scenarioInfo);
-#line hidden
-            TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Name",
-                        "Age"});
-            table8.AddRow(new string[] {
-                        "Marcus",
-                        "39"});
-#line 72
- testRunner.When("I create a dynamic instance with only ValueToDecimal delegate from this table", ((string)(null)), table8, "When ");
-#line 75
+#line 6
+this.FeatureBackground();
+#line 66
+ testRunner.When("I create a dynamic instance using ValueToDecimal delegate from table MarcusTwoCol" +
+                    "umns", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 67
  testRunner.Then("the Name property should be of type string and equal Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 76
+#line 68
   testRunner.And("the Age property should be of type decimal and equal 39.00", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -324,33 +304,19 @@ this.ScenarioSetup(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create dynamic instance from table with Field and Values using ValueToDecimal del" +
                     "egate", ((string[])(null)));
-#line 78
+#line 70
 this.ScenarioSetup(scenarioInfo);
-#line hidden
-            TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Field",
-                        "Value"});
-            table9.AddRow(new string[] {
-                        "Name",
-                        "Marcus"});
-            table9.AddRow(new string[] {
-                        "Age",
-                        "39"});
-            table9.AddRow(new string[] {
-                        "Birth date",
-                        "1972-10-09"});
-            table9.AddRow(new string[] {
-                        "Length in meters",
-                        "1.96"});
-#line 79
- testRunner.When("I create a dynamic instance with only ValueToDecimal delegate from this table", ((string)(null)), table9, "When ");
-#line 85
+#line 6
+this.FeatureBackground();
+#line 71
+ testRunner.When("I create a dynamic instance using ValueToDecimal delegate from table Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 72
  testRunner.Then("the Name property should be of type string and equal Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 86
+#line 73
   testRunner.And("the Age property should be of type decimal and equal 39.00", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 87
+#line 74
   testRunner.And("the BirthDate property should be of type DateTime and equal 1972-10-09", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 88
+#line 75
   testRunner.And("the LengthInMeters property should be of type decimal and equal 1.96", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -361,28 +327,19 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void CreateDynamicInstanceFromTableWithOneRowUsingValueToIntDelegate()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create dynamic instance from table with one row using ValueToInt delegate", ((string[])(null)));
-#line 90
+#line 77
 this.ScenarioSetup(scenarioInfo);
-#line hidden
-            TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Name",
-                        "Age",
-                        "Birth date",
-                        "Length in meters"});
-            table10.AddRow(new string[] {
-                        "Marcus",
-                        "39",
-                        "1972-10-09",
-                        "1.96"});
-#line 91
- testRunner.When("I create a dynamic instance with only ValueToInt delegate from this table", ((string)(null)), table10, "When ");
-#line 94
+#line 6
+this.FeatureBackground();
+#line 78
+ testRunner.When("I create a dynamic instance using ValueToInt delegate from table MarcusOneRow", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 79
  testRunner.Then("the Name property should be of type string and equal Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 95
+#line 80
   testRunner.And("the Age property should be of type int and equal 39", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 96
+#line 81
   testRunner.And("the BirthDate property should be of type DateTime and equal 1972-10-09", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 97
+#line 82
   testRunner.And("the LengthInMeters property should be of type double and equal 1.96", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -395,20 +352,16 @@ this.ScenarioSetup(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create dynamic instance from table with one row and 2 columns using ValueToInt de" +
                     "legate", ((string[])(null)));
-#line 99
+#line 84
 this.ScenarioSetup(scenarioInfo);
-#line hidden
-            TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Name",
-                        "Age"});
-            table11.AddRow(new string[] {
-                        "Marcus",
-                        "39"});
-#line 100
- testRunner.When("I create a dynamic instance with only ValueToInt delegate from this table", ((string)(null)), table11, "When ");
-#line 103
+#line 6
+this.FeatureBackground();
+#line 85
+ testRunner.When("I create a dynamic instance using ValueToInt delegate from table MarcusTwoColumns" +
+                    "", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 86
  testRunner.Then("the Name property should be of type string and equal Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 104
+#line 87
   testRunner.And("the Age property should be of type int and equal 39", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -421,33 +374,19 @@ this.ScenarioSetup(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create dynamic instance from table with Field and Values using ValueToInt delegat" +
                     "e", ((string[])(null)));
-#line 106
+#line 89
 this.ScenarioSetup(scenarioInfo);
-#line hidden
-            TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Field",
-                        "Value"});
-            table12.AddRow(new string[] {
-                        "Name",
-                        "Marcus"});
-            table12.AddRow(new string[] {
-                        "Age",
-                        "39"});
-            table12.AddRow(new string[] {
-                        "Birth date",
-                        "1972-10-09"});
-            table12.AddRow(new string[] {
-                        "Length in meters",
-                        "1.96"});
-#line 107
- testRunner.When("I create a dynamic instance with only ValueToInt delegate from this table", ((string)(null)), table12, "When ");
-#line 113
+#line 6
+this.FeatureBackground();
+#line 90
+ testRunner.When("I create a dynamic instance using ValueToInt delegate from table Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 91
  testRunner.Then("the Name property should be of type string and equal Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 114
+#line 92
   testRunner.And("the Age property should be of type int and equal 39", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 115
+#line 93
   testRunner.And("the BirthDate property should be of type DateTime and equal 1972-10-09", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 116
+#line 94
   testRunner.And("the LengthInMeters property should be of type double and equal 1.96", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -458,28 +397,20 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void CreateDynamicInstanceFromTableWithOneRowUsingValueToDateTimeDelegate()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create dynamic instance from table with one row using ValueToDateTime delegate", ((string[])(null)));
-#line 118
+#line 96
 this.ScenarioSetup(scenarioInfo);
-#line hidden
-            TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Name",
-                        "Age",
-                        "Birth date",
-                        "Length in meters"});
-            table13.AddRow(new string[] {
-                        "Marcus",
-                        "39",
-                        "1972-10-09",
-                        "1.96"});
-#line 119
- testRunner.When("I create a dynamic instance with only ValueToDateTime delegate from this table", ((string)(null)), table13, "When ");
-#line 122
+#line 6
+this.FeatureBackground();
+#line 97
+ testRunner.When("I create a dynamic instance using ValueToDateTime delegate from table MarcusOneRo" +
+                    "w", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 98
  testRunner.Then("the Name property should be of type string and equal Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 123
+#line 99
   testRunner.And("the Age property should be of type int and equal 39", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 124
+#line 100
   testRunner.And("the BirthDate property should be of type DateTime and equal 1972-10-09", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 125
+#line 101
   testRunner.And("the LengthInMeters property should be of type double and equal 1.96", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -492,20 +423,22 @@ this.ScenarioSetup(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create dynamic instance from table with one row and 2 columns using ValueToDateTi" +
                     "me delegate", ((string[])(null)));
-#line 127
+#line 103
 this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
 #line hidden
-            TechTalk.SpecFlow.Table table14 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
                         "Name",
                         "BirthDate"});
-            table14.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "Marcus",
                         "1972-10-09"});
-#line 128
- testRunner.When("I create a dynamic instance with only ValueToDateTime delegate from this table", ((string)(null)), table14, "When ");
-#line 131
+#line 104
+ testRunner.When("I create a dynamic instance using ValueToDateTime delegate from this table", ((string)(null)), table4, "When ");
+#line 107
  testRunner.Then("the Name property should be of type string and equal Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 132
+#line 108
   testRunner.And("the BirthDate property should be of type DateTime and equal 1972-10-09", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -518,33 +451,19 @@ this.ScenarioSetup(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create dynamic instance from table with Field and Values using ValueToDateTime de" +
                     "legate", ((string[])(null)));
-#line 134
+#line 110
 this.ScenarioSetup(scenarioInfo);
-#line hidden
-            TechTalk.SpecFlow.Table table15 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Field",
-                        "Value"});
-            table15.AddRow(new string[] {
-                        "Name",
-                        "Marcus"});
-            table15.AddRow(new string[] {
-                        "Age",
-                        "39"});
-            table15.AddRow(new string[] {
-                        "Birth date",
-                        "1972-10-09"});
-            table15.AddRow(new string[] {
-                        "Length in meters",
-                        "1.96"});
-#line 135
- testRunner.When("I create a dynamic instance with only ValueToDateTime delegate from this table", ((string)(null)), table15, "When ");
-#line 141
+#line 6
+this.FeatureBackground();
+#line 111
+ testRunner.When("I create a dynamic instance using ValueToDateTime delegate from table Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 112
  testRunner.Then("the Name property should be of type string and equal Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 142
+#line 113
   testRunner.And("the Age property should be of type int and equal 39", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 143
+#line 114
   testRunner.And("the BirthDate property should be of type DateTime and equal 1972-10-09", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 144
+#line 115
   testRunner.And("the LengthInMeters property should be of type double and equal 1.96", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -557,29 +476,31 @@ this.ScenarioSetup(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create dynamic instance from table with one row using ValueToDateTime delegate wi" +
                     "th custom date format", ((string[])(null)));
-#line 146
+#line 117
 this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
 #line hidden
-            TechTalk.SpecFlow.Table table16 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
                         "Name",
                         "Age",
                         "Birth date",
                         "Length in meters"});
-            table16.AddRow(new string[] {
+            table5.AddRow(new string[] {
                         "Marcus",
                         "39",
                         "09/10/1972",
                         "1.96"});
-#line 147
- testRunner.When("I create a dynamic instance with only ValueToDateTime delegate using date format " +
-                    "dd/MM/yyyy from this table", ((string)(null)), table16, "When ");
-#line 150
+#line 118
+ testRunner.When("I create a dynamic instance using ValueToDateTime delegate using date format dd/M" +
+                    "M/yyyy from this table", ((string)(null)), table5, "When ");
+#line 121
  testRunner.Then("the Name property should be of type string and equal Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 151
+#line 122
   testRunner.And("the Age property should be of type int and equal 39", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 152
+#line 123
   testRunner.And("the BirthDate property should be of type DateTime and equal 1972-10-09", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 153
+#line 124
   testRunner.And("the LengthInMeters property should be of type double and equal 1.96", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -592,21 +513,23 @@ this.ScenarioSetup(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create dynamic instance from table with one row and 2 columns using ValueToDateTi" +
                     "me delegate with custom date format", ((string[])(null)));
-#line 155
+#line 126
 this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
 #line hidden
-            TechTalk.SpecFlow.Table table17 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
                         "Name",
                         "BirthDate"});
-            table17.AddRow(new string[] {
+            table6.AddRow(new string[] {
                         "Marcus",
                         "09/10/1972"});
-#line 156
- testRunner.When("I create a dynamic instance with only ValueToDateTime delegate using date format " +
-                    "dd/MM/yyyy from this table", ((string)(null)), table17, "When ");
-#line 159
+#line 127
+ testRunner.When("I create a dynamic instance using ValueToDateTime delegate using date format dd/M" +
+                    "M/yyyy from this table", ((string)(null)), table6, "When ");
+#line 130
  testRunner.Then("the Name property should be of type string and equal Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 160
+#line 131
   testRunner.And("the BirthDate property should be of type DateTime and equal 1972-10-09", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -619,34 +542,36 @@ this.ScenarioSetup(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create dynamic instance from table with Field and Values using ValueToDateTime de" +
                     "legate with custom date format", ((string[])(null)));
-#line 163
+#line 133
 this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
 #line hidden
-            TechTalk.SpecFlow.Table table18 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
                         "Field",
                         "Value"});
-            table18.AddRow(new string[] {
+            table7.AddRow(new string[] {
                         "Name",
                         "Marcus"});
-            table18.AddRow(new string[] {
+            table7.AddRow(new string[] {
                         "Age",
                         "39"});
-            table18.AddRow(new string[] {
+            table7.AddRow(new string[] {
                         "Birth date",
                         "09/10/1972"});
-            table18.AddRow(new string[] {
+            table7.AddRow(new string[] {
                         "Length in meters",
                         "1.96"});
-#line 164
- testRunner.When("I create a dynamic instance with only ValueToDateTime delegate using date format " +
-                    "dd/MM/yyyy from this table", ((string)(null)), table18, "When ");
-#line 170
+#line 134
+ testRunner.When("I create a dynamic instance using ValueToDateTime delegate using date format dd/M" +
+                    "M/yyyy from this table", ((string)(null)), table7, "When ");
+#line 140
  testRunner.Then("the Name property should be of type string and equal Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 171
+#line 141
   testRunner.And("the Age property should be of type int and equal 39", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 172
+#line 142
   testRunner.And("the BirthDate property should be of type DateTime and equal 1972-10-09", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 173
+#line 143
   testRunner.And("the LengthInMeters property should be of type double and equal 1.96", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -659,29 +584,20 @@ this.ScenarioSetup(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create dynamic instance from table with one row using ValueToDecimal and ValueToS" +
                     "tring delegate", ((string[])(null)));
-#line 175
+#line 145
 this.ScenarioSetup(scenarioInfo);
-#line hidden
-            TechTalk.SpecFlow.Table table19 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Name",
-                        "Age",
-                        "Birth date",
-                        "Length in meters"});
-            table19.AddRow(new string[] {
-                        "Marcus",
-                        "39",
-                        "1972-10-09",
-                        "1.96"});
-#line 176
- testRunner.When("I create a dynamic instance with delegates ValueToDecimal, ValueToString from thi" +
-                    "s table", ((string)(null)), table19, "When ");
-#line 179
+#line 6
+this.FeatureBackground();
+#line 146
+ testRunner.When("I create a dynamic instance using delegates ValueToDecimal, ValueToString from ta" +
+                    "ble MarcusOneRow", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 147
  testRunner.Then("the Name property should be of type string and equal Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 180
+#line 148
   testRunner.And("the Age property should be of type decimal and equal 39.00", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 181
+#line 149
   testRunner.And("the BirthDate property should be of type string and equal 1972-10-09", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 182
+#line 150
   testRunner.And("the LengthInMeters property should be of type decimal and equal 1.96", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -694,21 +610,16 @@ this.ScenarioSetup(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create dynamic instance from table with one row and 2 columns using ValueToDecima" +
                     "l and ValueToString delegate", ((string[])(null)));
-#line 184
+#line 152
 this.ScenarioSetup(scenarioInfo);
-#line hidden
-            TechTalk.SpecFlow.Table table20 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Name",
-                        "Age"});
-            table20.AddRow(new string[] {
-                        "Marcus",
-                        "39"});
-#line 185
- testRunner.When("I create a dynamic instance with delegates ValueToDecimal, ValueToString from thi" +
-                    "s table", ((string)(null)), table20, "When ");
-#line 188
+#line 6
+this.FeatureBackground();
+#line 153
+ testRunner.When("I create a dynamic instance using delegates ValueToDecimal, ValueToString from ta" +
+                    "ble MarcusTwoColumns", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 154
  testRunner.Then("the Name property should be of type string and equal Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 189
+#line 155
   testRunner.And("the Age property should be of type decimal and equal 39.00", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -721,34 +632,20 @@ this.ScenarioSetup(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create dynamic instance from table with Field and Values using ValueToDecimal and" +
                     " ValueToString delegate", ((string[])(null)));
-#line 191
+#line 157
 this.ScenarioSetup(scenarioInfo);
-#line hidden
-            TechTalk.SpecFlow.Table table21 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Field",
-                        "Value"});
-            table21.AddRow(new string[] {
-                        "Name",
-                        "Marcus"});
-            table21.AddRow(new string[] {
-                        "Age",
-                        "39"});
-            table21.AddRow(new string[] {
-                        "Birth date",
-                        "1972-10-09"});
-            table21.AddRow(new string[] {
-                        "Length in meters",
-                        "1.96"});
-#line 192
- testRunner.When("I create a dynamic instance with delegates ValueToDecimal, ValueToString from thi" +
-                    "s table", ((string)(null)), table21, "When ");
-#line 198
+#line 6
+this.FeatureBackground();
+#line 158
+ testRunner.When("I create a dynamic instance using delegates ValueToDecimal, ValueToString from ta" +
+                    "ble Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 159
  testRunner.Then("the Name property should be of type string and equal Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 199
+#line 160
   testRunner.And("the Age property should be of type decimal and equal 39.00", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 200
+#line 161
   testRunner.And("the BirthDate property should be of type string and equal 1972-10-09", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 201
+#line 162
   testRunner.And("the LengthInMeters property should be of type decimal and equal 1.96", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();

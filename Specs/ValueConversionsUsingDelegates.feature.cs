@@ -67,10 +67,10 @@ namespace Specs
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Strings should be translated to strings when only ValueToString delegate is used")]
-        public virtual void StringsShouldBeTranslatedToStringsWhenOnlyValueToStringDelegateIsUsed()
+        [NUnit.Framework.DescriptionAttribute("Strings should be translated to strings using ValueToString delegate")]
+        public virtual void StringsShouldBeTranslatedToStringsUsingValueToStringDelegate()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Strings should be translated to strings when only ValueToString delegate is used", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Strings should be translated to strings using ValueToString delegate", ((string[])(null)));
 #line 6
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -79,7 +79,7 @@ this.ScenarioSetup(scenarioInfo);
             table1.AddRow(new string[] {
                         "Marcus"});
 #line 7
- testRunner.When("I create a dynamic instance with only ValueToString delegate from this table", ((string)(null)), table1, "When ");
+ testRunner.When("I create a dynamic instance using ValueToString delegate from this table", ((string)(null)), table1, "When ");
 #line 10
  testRunner.Then("the Name property should be of type string and equal Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -87,12 +87,10 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Integers should be translated to strings when only ValueToString delegate is used" +
-            "")]
-        public virtual void IntegersShouldBeTranslatedToStringsWhenOnlyValueToStringDelegateIsUsed()
+        [NUnit.Framework.DescriptionAttribute("Integers should be translated to strings using ValueToString delegate")]
+        public virtual void IntegersShouldBeTranslatedToStringsUsingValueToStringDelegate()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Integers should be translated to strings when only ValueToString delegate is used" +
-                    "", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Integers should be translated to strings using ValueToString delegate", ((string[])(null)));
 #line 12
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -101,7 +99,7 @@ this.ScenarioSetup(scenarioInfo);
             table2.AddRow(new string[] {
                         "39"});
 #line 13
- testRunner.When("I create a dynamic instance with only ValueToString delegate from this table", ((string)(null)), table2, "When ");
+ testRunner.When("I create a dynamic instance using ValueToString delegate from this table", ((string)(null)), table2, "When ");
 #line 16
  testRunner.Then("the Age property should be of type string and equal 39", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -109,10 +107,10 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Doubles should be translated to strings when only ValueToString delegate is used")]
-        public virtual void DoublesShouldBeTranslatedToStringsWhenOnlyValueToStringDelegateIsUsed()
+        [NUnit.Framework.DescriptionAttribute("Doubles should be translated to strings using ValueToString delegate")]
+        public virtual void DoublesShouldBeTranslatedToStringsUsingValueToStringDelegate()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Doubles should be translated to strings when only ValueToString delegate is used", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Doubles should be translated to strings using ValueToString delegate", ((string[])(null)));
 #line 18
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -121,7 +119,7 @@ this.ScenarioSetup(scenarioInfo);
             table3.AddRow(new string[] {
                         "1.96"});
 #line 19
- testRunner.When("I create a dynamic instance with only ValueToString delegate from this table", ((string)(null)), table3, "When ");
+ testRunner.When("I create a dynamic instance using ValueToString delegate from this table", ((string)(null)), table3, "When ");
 #line 22
  testRunner.Then("the LengthInMeters property should be of type string and equal 1.96", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -129,12 +127,10 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Decimals should be translated to strings when only ValueToString delegate is used" +
-            "")]
-        public virtual void DecimalsShouldBeTranslatedToStringsWhenOnlyValueToStringDelegateIsUsed()
+        [NUnit.Framework.DescriptionAttribute("Decimals should be translated to strings using ValueToString delegate")]
+        public virtual void DecimalsShouldBeTranslatedToStringsUsingValueToStringDelegate()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Decimals should be translated to strings when only ValueToString delegate is used" +
-                    "", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Decimals should be translated to strings using ValueToString delegate", ((string[])(null)));
 #line 24
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -143,7 +139,7 @@ this.ScenarioSetup(scenarioInfo);
             table4.AddRow(new string[] {
                         "1000000000.1111991111"});
 #line 25
- testRunner.When("I create a dynamic instance with only ValueToString delegate from this table", ((string)(null)), table4, "When ");
+ testRunner.When("I create a dynamic instance using ValueToString delegate from this table", ((string)(null)), table4, "When ");
 #line 28
  testRunner.Then("the MolecularWeight property should be of type string and equal 1000000000.111199" +
                     "1111", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -152,10 +148,10 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Dates should be translated to strings when only ValueToString delegate is used")]
-        public virtual void DatesShouldBeTranslatedToStringsWhenOnlyValueToStringDelegateIsUsed()
+        [NUnit.Framework.DescriptionAttribute("Dates should be translated to strings using ValueToString delegate")]
+        public virtual void DatesShouldBeTranslatedToStringsUsingValueToStringDelegate()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Dates should be translated to strings when only ValueToString delegate is used", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Dates should be translated to strings using ValueToString delegate", ((string[])(null)));
 #line 30
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -164,7 +160,7 @@ this.ScenarioSetup(scenarioInfo);
             table5.AddRow(new string[] {
                         "1972-10-09"});
 #line 31
- testRunner.When("I create a dynamic instance with only ValueToString delegate from this table", ((string)(null)), table5, "When ");
+ testRunner.When("I create a dynamic instance using ValueToString delegate from this table", ((string)(null)), table5, "When ");
 #line 34
  testRunner.Then("the BirthDate property should be of type string and equal 1972-10-09", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -172,10 +168,10 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Bools should be translated to strings when only ValueToString delegate is used")]
-        public virtual void BoolsShouldBeTranslatedToStringsWhenOnlyValueToStringDelegateIsUsed()
+        [NUnit.Framework.DescriptionAttribute("Bools should be translated to strings using ValueToString delegate")]
+        public virtual void BoolsShouldBeTranslatedToStringsUsingValueToStringDelegate()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Bools should be translated to strings when only ValueToString delegate is used", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Bools should be translated to strings using ValueToString delegate", ((string[])(null)));
 #line 36
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -184,7 +180,7 @@ this.ScenarioSetup(scenarioInfo);
             table6.AddRow(new string[] {
                         "false"});
 #line 37
- testRunner.When("I create a dynamic instance with only ValueToString delegate from this table", ((string)(null)), table6, "When ");
+ testRunner.When("I create a dynamic instance using ValueToString delegate from this table", ((string)(null)), table6, "When ");
 #line 40
  testRunner.Then("the IsDeveloper property should be of type string and equal false", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -192,12 +188,10 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("A strange double should be translated to string shen only ValueToString delegate " +
-            "is used")]
-        public virtual void AStrangeDoubleShouldBeTranslatedToStringShenOnlyValueToStringDelegateIsUsed()
+        [NUnit.Framework.DescriptionAttribute("A strange double should be translated to string using ValueToString delegate")]
+        public virtual void AStrangeDoubleShouldBeTranslatedToStringUsingValueToStringDelegate()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("A strange double should be translated to string shen only ValueToString delegate " +
-                    "is used", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("A strange double should be translated to string using ValueToString delegate", ((string[])(null)));
 #line 42
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -206,7 +200,7 @@ this.ScenarioSetup(scenarioInfo);
             table7.AddRow(new string[] {
                         "4.567"});
 #line 43
- testRunner.When("I create a dynamic instance with only ValueToString delegate from this table", ((string)(null)), table7, "When ");
+ testRunner.When("I create a dynamic instance using ValueToString delegate from this table", ((string)(null)), table7, "When ");
 #line 46
  testRunner.Then("the LengthInMeters property should be of type string and equal 4.567", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -214,12 +208,12 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Strings should fall back to being translated to strings when only ValueToDecimal " +
-            "delegate is used")]
-        public virtual void StringsShouldFallBackToBeingTranslatedToStringsWhenOnlyValueToDecimalDelegateIsUsed()
+        [NUnit.Framework.DescriptionAttribute("Strings should fall back to being translated to strings using ValueToDecimal dele" +
+            "gate")]
+        public virtual void StringsShouldFallBackToBeingTranslatedToStringsUsingValueToDecimalDelegate()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Strings should fall back to being translated to strings when only ValueToDecimal " +
-                    "delegate is used", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Strings should fall back to being translated to strings using ValueToDecimal dele" +
+                    "gate", ((string[])(null)));
 #line 48
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -228,7 +222,7 @@ this.ScenarioSetup(scenarioInfo);
             table8.AddRow(new string[] {
                         "Marcus"});
 #line 49
- testRunner.When("I create a dynamic instance with only ValueToDecimal delegate from this table", ((string)(null)), table8, "When ");
+ testRunner.When("I create a dynamic instance using ValueToDecimal delegate from this table", ((string)(null)), table8, "When ");
 #line 52
  testRunner.Then("the Name property should be of type string and equal Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -236,12 +230,10 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Integers should be translated to decimals when only ValueToDecimal delegate is us" +
-            "ed")]
-        public virtual void IntegersShouldBeTranslatedToDecimalsWhenOnlyValueToDecimalDelegateIsUsed()
+        [NUnit.Framework.DescriptionAttribute("Integers should be translated to decimals using ValueToDecimal delegate")]
+        public virtual void IntegersShouldBeTranslatedToDecimalsUsingValueToDecimalDelegate()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Integers should be translated to decimals when only ValueToDecimal delegate is us" +
-                    "ed", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Integers should be translated to decimals using ValueToDecimal delegate", ((string[])(null)));
 #line 54
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -250,7 +242,7 @@ this.ScenarioSetup(scenarioInfo);
             table9.AddRow(new string[] {
                         "39"});
 #line 55
- testRunner.When("I create a dynamic instance with only ValueToDecimal delegate from this table", ((string)(null)), table9, "When ");
+ testRunner.When("I create a dynamic instance using ValueToDecimal delegate from this table", ((string)(null)), table9, "When ");
 #line 58
  testRunner.Then("the Age property should be of type decimal and equal 39.00", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -258,12 +250,10 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Doubles should be translated to decimals when only ValueToDecimal delegate is use" +
-            "d")]
-        public virtual void DoublesShouldBeTranslatedToDecimalsWhenOnlyValueToDecimalDelegateIsUsed()
+        [NUnit.Framework.DescriptionAttribute("Doubles should be translated to decimals using ValueToDecimal delegate")]
+        public virtual void DoublesShouldBeTranslatedToDecimalsUsingValueToDecimalDelegate()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Doubles should be translated to decimals when only ValueToDecimal delegate is use" +
-                    "d", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Doubles should be translated to decimals using ValueToDecimal delegate", ((string[])(null)));
 #line 60
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -272,7 +262,7 @@ this.ScenarioSetup(scenarioInfo);
             table10.AddRow(new string[] {
                         "1.96"});
 #line 61
- testRunner.When("I create a dynamic instance with only ValueToDecimal delegate from this table", ((string)(null)), table10, "When ");
+ testRunner.When("I create a dynamic instance using ValueToDecimal delegate from this table", ((string)(null)), table10, "When ");
 #line 64
  testRunner.Then("the LengthInMeters property should be of type decimal and equal 1.96", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -280,12 +270,10 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Decimals should be translated to decimals when only ValueToDecimal delegate is us" +
-            "ed")]
-        public virtual void DecimalsShouldBeTranslatedToDecimalsWhenOnlyValueToDecimalDelegateIsUsed()
+        [NUnit.Framework.DescriptionAttribute("Decimals should be translated to decimals using ValueToDecimal delegate")]
+        public virtual void DecimalsShouldBeTranslatedToDecimalsUsingValueToDecimalDelegate()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Decimals should be translated to decimals when only ValueToDecimal delegate is us" +
-                    "ed", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Decimals should be translated to decimals using ValueToDecimal delegate", ((string[])(null)));
 #line 66
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -294,7 +282,7 @@ this.ScenarioSetup(scenarioInfo);
             table11.AddRow(new string[] {
                         "1000000000.1111991111"});
 #line 67
- testRunner.When("I create a dynamic instance with only ValueToDecimal delegate from this table", ((string)(null)), table11, "When ");
+ testRunner.When("I create a dynamic instance using ValueToDecimal delegate from this table", ((string)(null)), table11, "When ");
 #line 70
  testRunner.Then("the MolecularWeight property should be of type decimal and equal 1000000000.11119" +
                     "91111", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -303,12 +291,12 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Dates should fall back to being translated to date times when only ValueToDecimal" +
-            " delegate is used")]
-        public virtual void DatesShouldFallBackToBeingTranslatedToDateTimesWhenOnlyValueToDecimalDelegateIsUsed()
+        [NUnit.Framework.DescriptionAttribute("Dates should fall back to being translated to date times using ValueToDecimal del" +
+            "egate")]
+        public virtual void DatesShouldFallBackToBeingTranslatedToDateTimesUsingValueToDecimalDelegate()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Dates should fall back to being translated to date times when only ValueToDecimal" +
-                    " delegate is used", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Dates should fall back to being translated to date times using ValueToDecimal del" +
+                    "egate", ((string[])(null)));
 #line 72
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -317,7 +305,7 @@ this.ScenarioSetup(scenarioInfo);
             table12.AddRow(new string[] {
                         "1972-10-09"});
 #line 73
- testRunner.When("I create a dynamic instance with only ValueToDecimal delegate from this table", ((string)(null)), table12, "When ");
+ testRunner.When("I create a dynamic instance using ValueToDecimal delegate from this table", ((string)(null)), table12, "When ");
 #line 76
  testRunner.Then("the BirthDate property should be of type DateTime and equal 1972-10-09", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -325,12 +313,12 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Bools should fall back to being translated translated to bools when only ValueToD" +
-            "ecimal delegate is used")]
-        public virtual void BoolsShouldFallBackToBeingTranslatedTranslatedToBoolsWhenOnlyValueToDecimalDelegateIsUsed()
+        [NUnit.Framework.DescriptionAttribute("Bools should fall back to being translated translated to bools using ValueToDecim" +
+            "al delegate")]
+        public virtual void BoolsShouldFallBackToBeingTranslatedTranslatedToBoolsUsingValueToDecimalDelegate()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Bools should fall back to being translated translated to bools when only ValueToD" +
-                    "ecimal delegate is used", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Bools should fall back to being translated translated to bools using ValueToDecim" +
+                    "al delegate", ((string[])(null)));
 #line 78
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -339,7 +327,7 @@ this.ScenarioSetup(scenarioInfo);
             table13.AddRow(new string[] {
                         "false"});
 #line 79
- testRunner.When("I create a dynamic instance with only ValueToDecimal delegate from this table", ((string)(null)), table13, "When ");
+ testRunner.When("I create a dynamic instance using ValueToDecimal delegate from this table", ((string)(null)), table13, "When ");
 #line 82
  testRunner.Then("the IsDeveloper property should be of type bool and equal false", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -347,12 +335,10 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("A strange double should be translated to decimal when only ValueToDecimal delegat" +
-            "e is used")]
-        public virtual void AStrangeDoubleShouldBeTranslatedToDecimalWhenOnlyValueToDecimalDelegateIsUsed()
+        [NUnit.Framework.DescriptionAttribute("A strange double should be translated to decimal using ValueToDecimal delegate")]
+        public virtual void AStrangeDoubleShouldBeTranslatedToDecimalUsingValueToDecimalDelegate()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("A strange double should be translated to decimal when only ValueToDecimal delegat" +
-                    "e is used", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("A strange double should be translated to decimal using ValueToDecimal delegate", ((string[])(null)));
 #line 84
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -361,7 +347,7 @@ this.ScenarioSetup(scenarioInfo);
             table14.AddRow(new string[] {
                         "4.567"});
 #line 85
- testRunner.When("I create a dynamic instance with only ValueToDecimal delegate from this table", ((string)(null)), table14, "When ");
+ testRunner.When("I create a dynamic instance using ValueToDecimal delegate from this table", ((string)(null)), table14, "When ");
 #line 88
  testRunner.Then("the LengthInMeters property should be of type decimal and equal 4.567", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -369,12 +355,12 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Strings should be translated to strings when ValueToDecimal and ValueToString del" +
-            "egates are used")]
-        public virtual void StringsShouldBeTranslatedToStringsWhenValueToDecimalAndValueToStringDelegatesAreUsed()
+        [NUnit.Framework.DescriptionAttribute("Strings should be translated to strings using ValueToDecimal and ValueToString de" +
+            "legates")]
+        public virtual void StringsShouldBeTranslatedToStringsUsingValueToDecimalAndValueToStringDelegates()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Strings should be translated to strings when ValueToDecimal and ValueToString del" +
-                    "egates are used", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Strings should be translated to strings using ValueToDecimal and ValueToString de" +
+                    "legates", ((string[])(null)));
 #line 90
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -383,8 +369,8 @@ this.ScenarioSetup(scenarioInfo);
             table15.AddRow(new string[] {
                         "Marcus"});
 #line 91
- testRunner.When("I create a dynamic instance with delegates ValueToDecimal, ValueToString from thi" +
-                    "s table", ((string)(null)), table15, "When ");
+ testRunner.When("I create a dynamic instance using delegates ValueToDecimal, ValueToString from th" +
+                    "is table", ((string)(null)), table15, "When ");
 #line 94
  testRunner.Then("the Name property should be of type string and equal Marcus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -392,12 +378,12 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Integers should be translated to decimals when ValueToDecimal and ValueToString d" +
-            "elegates are used")]
-        public virtual void IntegersShouldBeTranslatedToDecimalsWhenValueToDecimalAndValueToStringDelegatesAreUsed()
+        [NUnit.Framework.DescriptionAttribute("Integers should be translated to decimals using ValueToDecimal and ValueToString " +
+            "delegates")]
+        public virtual void IntegersShouldBeTranslatedToDecimalsUsingValueToDecimalAndValueToStringDelegates()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Integers should be translated to decimals when ValueToDecimal and ValueToString d" +
-                    "elegates are used", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Integers should be translated to decimals using ValueToDecimal and ValueToString " +
+                    "delegates", ((string[])(null)));
 #line 96
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -406,8 +392,8 @@ this.ScenarioSetup(scenarioInfo);
             table16.AddRow(new string[] {
                         "39"});
 #line 97
- testRunner.When("I create a dynamic instance with delegates ValueToDecimal, ValueToString from thi" +
-                    "s table", ((string)(null)), table16, "When ");
+ testRunner.When("I create a dynamic instance using delegates ValueToDecimal, ValueToString from th" +
+                    "is table", ((string)(null)), table16, "When ");
 #line 100
  testRunner.Then("the Age property should be of type decimal and equal 39.00", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -415,12 +401,12 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Doubles should be translated to decimals when ValueToDecimal and ValueToString de" +
-            "legates are used")]
-        public virtual void DoublesShouldBeTranslatedToDecimalsWhenValueToDecimalAndValueToStringDelegatesAreUsed()
+        [NUnit.Framework.DescriptionAttribute("Doubles should be translated to decimals using ValueToDecimal and ValueToString d" +
+            "elegates")]
+        public virtual void DoublesShouldBeTranslatedToDecimalsUsingValueToDecimalAndValueToStringDelegates()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Doubles should be translated to decimals when ValueToDecimal and ValueToString de" +
-                    "legates are used", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Doubles should be translated to decimals using ValueToDecimal and ValueToString d" +
+                    "elegates", ((string[])(null)));
 #line 102
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -429,8 +415,8 @@ this.ScenarioSetup(scenarioInfo);
             table17.AddRow(new string[] {
                         "1.96"});
 #line 103
- testRunner.When("I create a dynamic instance with delegates ValueToDecimal, ValueToString from thi" +
-                    "s table", ((string)(null)), table17, "When ");
+ testRunner.When("I create a dynamic instance using delegates ValueToDecimal, ValueToString from th" +
+                    "is table", ((string)(null)), table17, "When ");
 #line 106
  testRunner.Then("the LengthInMeters property should be of type decimal and equal 1.96", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -438,12 +424,12 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Decimals should be translated to decimals when ValueToDecimal and ValueToString d" +
-            "elegates are used")]
-        public virtual void DecimalsShouldBeTranslatedToDecimalsWhenValueToDecimalAndValueToStringDelegatesAreUsed()
+        [NUnit.Framework.DescriptionAttribute("Decimals should be translated to decimals using ValueToDecimal and ValueToString " +
+            "delegates")]
+        public virtual void DecimalsShouldBeTranslatedToDecimalsUsingValueToDecimalAndValueToStringDelegates()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Decimals should be translated to decimals when ValueToDecimal and ValueToString d" +
-                    "elegates are used", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Decimals should be translated to decimals using ValueToDecimal and ValueToString " +
+                    "delegates", ((string[])(null)));
 #line 108
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -452,8 +438,8 @@ this.ScenarioSetup(scenarioInfo);
             table18.AddRow(new string[] {
                         "1000000000.1111991111"});
 #line 109
- testRunner.When("I create a dynamic instance with delegates ValueToDecimal, ValueToString from thi" +
-                    "s table", ((string)(null)), table18, "When ");
+ testRunner.When("I create a dynamic instance using delegates ValueToDecimal, ValueToString from th" +
+                    "is table", ((string)(null)), table18, "When ");
 #line 112
  testRunner.Then("the MolecularWeight property should be of type decimal and equal 1000000000.11119" +
                     "91111", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -462,12 +448,12 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Dates should be translated to strings when ValueToDecimal and ValueToString deleg" +
-            "ates are used")]
-        public virtual void DatesShouldBeTranslatedToStringsWhenValueToDecimalAndValueToStringDelegatesAreUsed()
+        [NUnit.Framework.DescriptionAttribute("Dates should be translated to strings using ValueToDecimal and ValueToString dele" +
+            "gates")]
+        public virtual void DatesShouldBeTranslatedToStringsUsingValueToDecimalAndValueToStringDelegates()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Dates should be translated to strings when ValueToDecimal and ValueToString deleg" +
-                    "ates are used", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Dates should be translated to strings using ValueToDecimal and ValueToString dele" +
+                    "gates", ((string[])(null)));
 #line 114
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -476,8 +462,8 @@ this.ScenarioSetup(scenarioInfo);
             table19.AddRow(new string[] {
                         "1972-10-09"});
 #line 115
- testRunner.When("I create a dynamic instance with delegates ValueToDecimal, ValueToString from thi" +
-                    "s table", ((string)(null)), table19, "When ");
+ testRunner.When("I create a dynamic instance using delegates ValueToDecimal, ValueToString from th" +
+                    "is table", ((string)(null)), table19, "When ");
 #line 118
  testRunner.Then("the BirthDate property should be of type string and equal 1972-10-09", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -485,12 +471,12 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Bools should be translated to strings when ValueToDecimal and ValueToString deleg" +
-            "ates are used")]
-        public virtual void BoolsShouldBeTranslatedToStringsWhenValueToDecimalAndValueToStringDelegatesAreUsed()
+        [NUnit.Framework.DescriptionAttribute("Bools should be translated to strings using ValueToDecimal and ValueToString dele" +
+            "gates")]
+        public virtual void BoolsShouldBeTranslatedToStringsUsingValueToDecimalAndValueToStringDelegates()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Bools should be translated to strings when ValueToDecimal and ValueToString deleg" +
-                    "ates are used", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Bools should be translated to strings using ValueToDecimal and ValueToString dele" +
+                    "gates", ((string[])(null)));
 #line 120
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -499,8 +485,8 @@ this.ScenarioSetup(scenarioInfo);
             table20.AddRow(new string[] {
                         "false"});
 #line 121
- testRunner.When("I create a dynamic instance with delegates ValueToDecimal, ValueToString from thi" +
-                    "s table", ((string)(null)), table20, "When ");
+ testRunner.When("I create a dynamic instance using delegates ValueToDecimal, ValueToString from th" +
+                    "is table", ((string)(null)), table20, "When ");
 #line 124
  testRunner.Then("the IsDeveloper property should be of type string and equal false", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -508,12 +494,12 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("A strange double should be translated to decimal when ValueToDecimal and ValueToS" +
-            "tring delegates are used")]
-        public virtual void AStrangeDoubleShouldBeTranslatedToDecimalWhenValueToDecimalAndValueToStringDelegatesAreUsed()
+        [NUnit.Framework.DescriptionAttribute("A strange double should be translated to decimal using ValueToDecimal and ValueTo" +
+            "String delegates")]
+        public virtual void AStrangeDoubleShouldBeTranslatedToDecimalUsingValueToDecimalAndValueToStringDelegates()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("A strange double should be translated to decimal when ValueToDecimal and ValueToS" +
-                    "tring delegates are used", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("A strange double should be translated to decimal using ValueToDecimal and ValueTo" +
+                    "String delegates", ((string[])(null)));
 #line 126
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -522,8 +508,8 @@ this.ScenarioSetup(scenarioInfo);
             table21.AddRow(new string[] {
                         "4.567"});
 #line 127
- testRunner.When("I create a dynamic instance with delegates ValueToDecimal, ValueToString from thi" +
-                    "s table", ((string)(null)), table21, "When ");
+ testRunner.When("I create a dynamic instance using delegates ValueToDecimal, ValueToString from th" +
+                    "is table", ((string)(null)), table21, "When ");
 #line 130
  testRunner.Then("the LengthInMeters property should be of type decimal and equal 4.567", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
